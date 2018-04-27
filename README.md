@@ -30,10 +30,10 @@ Put the SD card in your Raspberry Pi and boot it up.
 
 Open a terminal screen and type the following lines, one line at a time, and pressing enter:
 
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install nodejs npm node-semver
-sudo npm install -g sky-remote-cli
+sudo apt-get update.
+sudo apt-get upgrade.
+sudo apt-get install nodejs npm node-semver.
+sudo npm install -g sky-remote-cli.
 
 # Install sky-remote-cli & Python program
 
