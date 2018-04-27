@@ -26,17 +26,15 @@ I used a Raspberry Pi 3 for development and testing, other versions should also 
 
 Use your Windows PC or Mac to write the latest Raspian image to the 8Gb Micro SD card.  I use a programme called Etcher to write to the SD card.
 
-Put the SD card in your Raspberry Pi and boot it up.
+Put the SD card in your Raspberry Pi and boot it up. Then open a terminal screen and type the following lines, one line at a time, and pressing enter:
 
-Open a terminal screen and type the following lines, one line at a time, and pressing enter:
+sudo apt-get update
 
-sudo apt-get update.
+sudo apt-get upgrade
 
-sudo apt-get upgrade.
+sudo apt-get install nodejs npm node-semver
 
-sudo apt-get install nodejs npm node-semver.
-
-sudo npm install -g sky-remote-cli.
+sudo npm install -g sky-remote-cli
 
 # Install sky-remote-cli & Python program
 
