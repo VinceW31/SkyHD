@@ -24,7 +24,7 @@ Text here
 
 I used a Raspberry Pi 3 for development and testing, other versions should also work fine but I've not tested them.  The Raspberry Pi can be used via SSH if you know how to do this, but if your unsure then just connect the HDMI port to a TV or suitable monitor and plug in a USB keyboard and mouse.  Dont forget to plug in an ethernet cable for internet connectivity or use a WiFi dongle. Of course, you will also need a 5v Power Supply with a micro USB connector for powering the Raspberry Pi.
 
-Use your Windows PC or Mac to write the latest Raspian image to the 8Gb Micro SD card.  I use a programme called Etcher to write to the SD card.
+Use your Windows PC or Mac to write the latest Raspian image available from https://www.raspberrypi.org/downloads/raspbian/ to the 8Gb Micro SD card.  I use a programme called Etcher to write to the SD card on my Windows PC.
 
 Put the SD card in your Raspberry Pi and boot it up. Then open a terminal screen and type the following lines, one line at a time, pressing enter after each line:
 
