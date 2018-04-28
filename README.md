@@ -26,15 +26,21 @@ I used a Raspberry Pi 3 for development and testing, other versions should also 
 
 Use your Windows PC or Mac to write the latest Raspian image to the 8Gb Micro SD card.  I use a programme called Etcher to write to the SD card.
 
-Put the SD card in your Raspberry Pi and boot it up. Then open a terminal screen and type the following lines, one line at a time, and pressing enter:
+Put the SD card in your Raspberry Pi and boot it up. Then open a terminal screen and type the following lines, one line at a time, pressing enter after each line:
 
-sudo apt-get update
+When you get to the desktop open a terminal screen and type the following line by line (pressing ENTER after each line):
 
-sudo apt-get upgrade
+git clone https://github.com/VinceW31/SkyHD.git
 
-sudo apt-get install nodejs npm node-semver
+sudo chmod +x /home/pi/SkyHD/installer.sh
 
-sudo npm install -g sky-remote-cli
+sudo  /home/pi/SkyHD/installer.sh
+
+When the installation script has finished then enter the following lines:
+
+
+cd /home/pi/SkyHD
+sudo python SkyHD.py
 
 # Install sky-remote-cli & Python program
 
