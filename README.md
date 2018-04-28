@@ -40,9 +40,12 @@ When you get to the desktop open a terminal screen and type the following line b
 ```
 When the installation script has finished then enter the following lines:
 
-
+```
 cd /home/pi/SkyHD
+```
+```
 sudo python SkyHD.py
+```
 
 # Install sky-remote-cli & Python program
 
