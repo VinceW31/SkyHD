@@ -25,7 +25,7 @@ then
 fi
 clear
 echo ""
-read -r -p "Enter your SkyHD box IP address (format = 192.168.xxx.xxx): full credential file name including .json extension: " skyboxip
+read -r -p "Enter your SkyHD box IP address (format = 192.168.xxx.xxx): " skyboxip
 echo ""
 
 
@@ -53,6 +53,8 @@ pip install -r blackbean_requirements.txt
 
 
 cd /home/pi/SkyHD
+
+
 
 #sudo apt-get install python3-dev python3-venv -y
 #--------------GassistPi Deps----------------------------------------------------
@@ -83,3 +85,5 @@ cd /home/pi/SkyHD
 #          --product-name $prodname --type LIGHT --model $modelid
 #echo "Testing the installed google assistant. Make a note of the generated Device-Id"
 #googlesamples-assistant-hotword --project_id $projid --device_model_id $modelid
+
+echo "This is the end of the installation script"
