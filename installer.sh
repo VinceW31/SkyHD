@@ -57,7 +57,7 @@ echo ""
 sudo npm install -g sky-remote-cli -y
 cd /home/pi/SkyHD
 echo ""
-"Installing blackbean requirements....."
+"Installing Broadlink BlackBean requirements....."
 echo ""
 
 
