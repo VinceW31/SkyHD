@@ -54,5 +54,15 @@ pip install -r blackbean_requirements.txt
 cd /home/pi/SkyHD
 
 echo ""
-echo "This is the end of the installation script"
+echo "This is the end of the installation script."
+echo ""
+echo "To make your Raspberry Pi automatically start the SkyHD service after boot-up"
+echo "then all you need to do is type the following in this (or a new one) terminal window:"
+echo "sudo nano /etc/rc.local"
+echo "then, in the file that opens up, click in the file window"
+echo "and scroll the cursor down with the cursor keys."
+echo "Just before the last line (exit 0), correctly add the following line:" 
+echo "/bin/sleep 15 && cd /home/pi/SkyHD/ && python SkyHD.py &"
+echo "and then save the file with Ctrl X, press Y, then press Enter"
+echo "This will then start the script 15 seconds after Pi boot-up."
 echo ""
