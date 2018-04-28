@@ -57,7 +57,7 @@ echo ""
 sudo npm install -g sky-remote-cli -y
 cd /home/pi/SkyHD
 echo ""
-echo "Installing Broadlink BlackBean requirements....."
+echo "Installing Broadlink BlackBean requirements.....(approx 5 mins)"
 echo ""
 
 
@@ -99,5 +99,7 @@ cd /home/pi/SkyHD
 #          --product-name $prodname --type LIGHT --model $modelid
 #echo "Testing the installed google assistant. Make a note of the generated Device-Id"
 #googlesamples-assistant-hotword --project_id $projid --device_model_id $modelid
-
+cd /home/pi/SkyHD
+echo ""
 echo "This is the end of the installation script"
+echo ""
