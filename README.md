@@ -30,11 +30,11 @@ Put the SD card in your Raspberry Pi and boot it up. Then open a terminal screen
 
 When you get to the desktop open a terminal screen and type the following line by line (pressing ENTER after each line):
 
-git clone https://github.com/VinceW31/SkyHD.git
+   git clone https://github.com/VinceW31/SkyHD.git
 
-sudo chmod +x /home/pi/SkyHD/installer.sh
+   sudo chmod +x /home/pi/SkyHD/installer.sh
 
-sudo  /home/pi/SkyHD/installer.sh
+   sudo /home/pi/SkyHD/installer.sh
 
 When the installation script has finished then enter the following lines:
 
