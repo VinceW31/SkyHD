@@ -50,7 +50,7 @@ sudo python SkyHD.py
 At the moment you will need to correct the IP address in SkyHD.py to your own Sky Box IP address.
 
 
-#### Remote control commands
+#### Remote control commands supported
 
 `sky` `power`
 
@@ -72,4 +72,4 @@ At the moment you will need to correct the IP address in SkyHD.py to your own Sk
 ## See also
 
 - http://github.com/dalhundal/sky-remote - The underlying Node module used by this tool
-- http://github.com/dalhundal/sky-q - A Node module for interacting with Sky Q boxes
+
