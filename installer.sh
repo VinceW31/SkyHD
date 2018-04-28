@@ -46,7 +46,7 @@ cd /home/pi/
 sudo apt-get update -y
 sudo apt-get install nodejs npm node-semver -y
 sudo npm install -g sky-remote-cli -y
-
+cd /home/pi/SkyHD
 pip install -r blackbean_requirements.txt
 
 
