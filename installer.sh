@@ -43,10 +43,24 @@ cd /home/pi/
 # mpsyt set player vlc, set playerargs ,exit
 # sudo apt-get install elinks -y
 #--------------------------------------------------------------------------------
+echo ""
+"Installing Raspbian updates....."
+echo ""
 sudo apt-get update -y
+echo ""
+"Installing nodejs npm.......(approx 5 mins)"
+echo ""
 sudo apt-get install nodejs npm node-semver -y
+echo ""
+"Installing sky-remote-cli....."
+echo ""
 sudo npm install -g sky-remote-cli -y
 cd /home/pi/SkyHD
+echo ""
+"Installing blackbean requirements....."
+echo ""
+
+
 pip install -r blackbean_requirements.txt
 
 
