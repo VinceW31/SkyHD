@@ -26,7 +26,7 @@ I used a Raspberry Pi 3 for development and testing, other versions should also 
 
 Use your Windows PC or Mac to write the latest Raspian image available from https://www.raspberrypi.org/downloads/raspbian/ to the 8Gb Micro SD card.  I use a programme called Etcher to write to the SD card on my Windows PC.
 
-Put the SD card in your Raspberry Pi and boot it up. Then open a terminal screen and type the following lines, one line at a time, pressing enter after each line:
+Put the SD card into your Raspberry Pi and boot it up. Then open a terminal screen and type the following lines, one line at a time, pressing enter after each line:
 
 When you get to the desktop open a terminal screen and type the following line by line (pressing ENTER after each line):
 ```
