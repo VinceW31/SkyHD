@@ -54,6 +54,7 @@ pip install -r blackbean_requirements.txt
 cd /home/pi/SkyHD
 open("skyip.txt","w")
 file.write($skyboxip)
+file.close
 
 echo ""
 echo "This is the end of the installation script."
