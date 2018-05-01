@@ -47,7 +47,7 @@ cd /home/pi/SkyHD
 sudo python SkyHD.py
 ```
 
-At the moment you will need to correct the IP address in SkyHD.py to your own Sky Box IP address.
+At the moment you will need to correct the Sky box IP address at the top of SkyHD.py to match your own Sky Box IP address.
 
 
 #### Remote control commands supported
