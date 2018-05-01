@@ -53,6 +53,50 @@ echo ""
 pip install -r blackbean_requirements.txt
 #pip3 install ConfigParser
 
+python path.py
+
+echo ""
+echo "Detecting and setting up BlackBean RM3....."
+echo ""
+python setup_RM3.py
+
+echo ""
+echo "Now its time to Learn the IR commands for TV Power, Mute, TV Vol Up and TV Vol Down.....
+echo""
+echo "You must point the SKY Remote at the top of the BlackBean RM3 and"
+echo "press the appropriate button on the Remote to allow it to learn each command."
+echo "You will get 30 seconds learning time per command, so no rush!"
+echo ""
+echo "press Y on your keyboard when you are ready to continue with the SKY Remote" anykey
+echo ""
+echo "Learning command for TV Power, you have 30 sec..... to  Mute, TV Vol Up and TV Vol Down....."
+echo ""
+python BlackBeanControl.py -c POWER
+press POWER button on remote
+Code displayed in terminal window and copied to ini file
+
+echo "Waiting for you to press the SKY Remote button for TV Power....."
+python BlackBeanControl.py -c MUTE
+press MUTEbutton on remote
+Code displayed in terminal window and copied to ini file
+
+echo "Learning command for TV Power, you have 30 sec..... to  Mute, TV Vol Up and TV Vol Down....."
+python BlackBeanControl.py -c VOLUP
+press VOLUME UP button once on remote
+Code displayed in terminal window and copied to ini file
+
+echo "Learning command for TV Power, you have 30 sec..... to  Mute, TV Vol Up and TV Vol Down....."
+python BlackBeanControl.py -c VOLDOWN
+press VOLUME DOWN button once on remote
+Code displayed in terminal window and copied to ini file
+
+python SkyHD.py
+
+echo ""
+echo "All Done!  You can try it out now....."
+echo ""
+
+
 #echo ""
 #echo "Installing Broadlink.....(approx 3 mins)"
 #echo ""
