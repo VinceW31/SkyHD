@@ -17,6 +17,11 @@ port = m.group(2)
 macadd = str(''.join(format(x, '02x') for x in devices[index].mac[::-1]))
 macadd = macadd[:2] + ":" + macadd[2:4] + ":" + macadd[4:6] + ":" + macadd[6:8] + ":" + macadd[8:10] + ":" + macadd[10:12]
 print(('Device ' + str(index + 1) +':\nIPAddress = ' + ipadd + '\nPort = ' + port + '\nMACAddress = ' + macadd))
+
+data = ["[General]","IPAddress = " + ipadd,"Port = " + port,"MACAddress = " + macadd,"Timeout = 30","[Commands]"]
+with open("BlackBeanControl.ini", "w") as f:
+    f.write('\n'.join(data))
+
 print("enter_learning (5s timeout) please press any key on remote to test")
 devices[0].enter_learning()
 time.sleep(5)
