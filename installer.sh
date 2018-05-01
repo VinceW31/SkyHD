@@ -93,38 +93,19 @@ Code displayed in terminal window and copied to ini file
 python SkyHD.py
 
 echo ""
-echo "All Done!  You can try it out now....."
-echo ""
-
-
-#echo ""
-#echo "Installing Broadlink.....(approx 3 mins)"
-#echo ""
-#pip install broadlink
-
-#echo ""
-#echo "Installing netaddr.....(approx 2 mins)"
-#echo ""
-#pip3 install netaddr
-
-#echo ""
-#echo "Installing pycryptodome.....(approx 5 mins)"
-#echo ""
-#pip install pycryptodome
-
-
-#cd /home/pi/SkyHD
-
-echo ""
 echo "This is the end of the installation script."
 echo ""
 echo "To make your Raspberry Pi automatically start the SkyHD service after boot-up"
 echo "then all you need to do is type the following in this, or a new terminal window:"
+echo ""
 echo "sudo nano /etc/rc.local"
-echo "then, in the file that opens up, click in the file window"
+Echo ""
+echo "Then, in the file that opens up, click in the file window"
 echo "and scroll the cursor down with the cursor keys."
 echo "Just before the last line (exit 0), correctly add the following line:" 
+echo ""
 echo "/bin/sleep 15 && cd /home/pi/SkyHD/ && python SkyHD.py &"
-echo "and then save the file with Ctrl X, press Y, then press Enter"
-echo "This will then start the script 15 seconds after Pi boot-up."
+echo""
+echo "Then save the file with Ctrl X, press Y, and press Enter"
+echo "This will automatically start the SkyHD service for you 15 seconds after Pi boot-up."
 echo ""
