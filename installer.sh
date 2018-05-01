@@ -72,23 +72,23 @@ echo ""
 echo "Learning command for TV Power, you have 30 sec..... to  Mute, TV Vol Up and TV Vol Down....."
 echo ""
 python BlackBeanControl.py -c POWER
-press POWER button on remote
-Code displayed in terminal window and copied to ini file
+echo "press POWER button on remote"
+echo "Code displayed in terminal window and copied to ini file"
 
 echo "Waiting for you to press the SKY Remote button for TV Power....."
 python BlackBeanControl.py -c MUTE
-press MUTEbutton on remote
-Code displayed in terminal window and copied to ini file
+echo "press MUTE button on remote"
+echo "Code displayed in terminal window and copied to ini file"
 
 echo "Learning command for TV Power, you have 30 sec..... to  Mute, TV Vol Up and TV Vol Down....."
 python BlackBeanControl.py -c VOLUP
-press VOLUME UP button once on remote
-Code displayed in terminal window and copied to ini file
+echo "press VOLUME UP button once on remote"
+echo "Code displayed in terminal window and copied to ini file"
 
 echo "Learning command for TV Power, you have 30 sec..... to  Mute, TV Vol Up and TV Vol Down....."
 python BlackBeanControl.py -c VOLDOWN
-press VOLUME DOWN button once on remote
-Code displayed in terminal window and copied to ini file
+echo "press VOLUME DOWN button once on remote"
+echo "Code displayed in terminal window and copied to ini file"
 
 python SkyHD.py
 
@@ -105,7 +105,7 @@ echo "and scroll the cursor down with the cursor keys."
 echo "Just before the last line (exit 0), correctly add the following line:" 
 echo ""
 echo "/bin/sleep 15 && cd /home/pi/SkyHD/ && python SkyHD.py &"
-echo""
+echo ""
 echo "Then save the file with Ctrl X, press Y, and press Enter"
 echo "This will automatically start the SkyHD service for you 15 seconds after Pi boot-up."
 echo ""
