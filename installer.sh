@@ -59,7 +59,7 @@ echo ""
 python setup_RM3.py
 
 echo ""
-echo "Now its time to Learn the IR commands for TV Power, Mute, TV Vol Up and TV Vol Down.....
+echo "Now its time to Learn the IR commands for TV Power, Mute, TV Vol Up and TV Vol Down....."
 echo ""
 echo "You must point the SKY Remote at the top of the BlackBean RM3 and"
 echo "press the appropriate button on the Remote to allow it to learn each command."
