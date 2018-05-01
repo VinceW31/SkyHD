@@ -45,11 +45,24 @@ echo "Installing sky-remote-cli....."
 echo ""
 sudo npm install -g sky-remote-cli -y
 
-cd /home/pi/SkyHD
+#cd /home/pi/SkyHD
 echo ""
-echo "Installing Broadlink BlackBean requirements.....(approx 5 mins)"
+#echo "Installing Broadlink BlackBean requirements.....(approx 5 mins)"
+echo "Installing configparser.....(approx 2 mins)"
 echo ""
-pip install -r blackbean_requirements.txt
+#pip install -r blackbean_requirements.txt
+pip install configparser
+
+echo ""
+echo "Installing netaddr.....(approx 2 mins)"
+echo ""
+pip install netaddr
+
+echo ""
+echo "Installing pycryptodome.....(approx 5 mins)"
+echo ""
+pip install pycryptodome
+
 
 cd /home/pi/SkyHD
 
