@@ -38,7 +38,7 @@ sudo chmod +x /home/pi/SkyHD/installer.sh
 ```
 sudo /home/pi/SkyHD/installer.sh
 ```
-The installation script will install everything for you, then it will wait for you to get your SKY Remote ready so that it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  
+The installation script will now install everything for you, then it will wait for you to get your SKY Remote ready so that it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  
 When prompted you must point your SKY Remote directly downwards at the top of the BlackBean RM3 and press the appropriate button.  You will have 30 seconds to do this per command.
 
 When the installation script has finished then enter the following lines:
