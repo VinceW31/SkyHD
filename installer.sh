@@ -48,10 +48,8 @@ sudo npm install -g sky-remote-cli -y
 cd /home/pi/SkyHD
 echo ""
 echo "Installing Broadlink BlackBean requirements.....(approx 5 mins)"
-#echo "Installing configparser.....(approx 2 mins)"
 echo ""
 pip install -r blackbean_requirements.txt
-#pip3 install ConfigParser
 
 python path.py
 
