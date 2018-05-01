@@ -2,15 +2,21 @@ This Project has not been released yet, still work in progress!  However, commen
 
 # Summary
 
-This project is a fully documented (for basic user easy install) installation for controlling a UK SkyHD box with Google home/Mini via a Raspberry Pi.  
+This project is a fully documented (for basic user easy install) installation for controlling a UK SkyHD box with simple and friendly Voice Commands using Google Home/Mini/Assistant via a Raspberry Pi3 hosting this project software.  You can also add an optional Broadlink BlackBean RM3 IR device (for the IR commands), its supported too.  If you do not have the optional BlackBean RM3 device then dont worry, all of the SkyHD box functions will still work ok (they work over WiFi/Ethernet), you just will not have the functionality to control the IR commands (TV Power, Mute, vol Up/Down) via Google Home/Mini/Assistant.
 
-It contains all the steps and files necessary to complete the project from end to end.  In order to complete this project you will need the following: Google Home/Mini device (or Google Assistant on your phone will do), Raspberry Pi, Blank 8 Gb Micro SD card (for Raspberry Pi 3) and of course, a SkyHD Box.
+The project contains all the steps and files necessary to complete the project from end to end, including the optional RM3 functionality.  In order to complete this project you will need the following: A Google Home/Mini device (or Google Assistant on your phone will do) and a Raspberry Pi with a Blank 8 Gb Micro SD card, and of course, a SkyHD Box.  If you want to control your TV power and audio functions (which are IR based) then you will also need the optional Broadlink BlackBean RM3.  
 
-The project uses the Google Home/Mini assistant to capture your voice command, this is then sent automatically by Google Home/Mini to IFTTT (you will need to set up a free account) which detects certain keyword triggers and then sends commands back to your Raspberry Pi to compile into a macro thats sent directly to your SkyHD box.  
+# How does it work?
 
-# What it doesnt do
+The project uses the Google Home/Mini/Assistant to capture your voice commands, this converts your voice commands to text and then automatically sends them in a string directly to your IFTTT account (I'll show you how to set up a free account for this).  Your IFTTT then detects simple and friendly keyword triggers within the text it recieves and then sends commands back to your Raspberry Pi.  The Raspberry Pi then captures those commands, filters them through a series of logical steps and compiles commands into a SkyHD friendly format that can then be sent directly over your WiFi/Ethernet to your SkyHD box.  The Raspberry Pi will also detect and output the commands that need to be sent to your TV for contolling the Power and Audio functions via IR (through the optional BlackBean RM3) if you decide to include this capability. 
 
-It does not control your TV functions like on/off and volume/mute, these are IR TV functions that your Sky Remote can control, but they are not Sky box functions.  You will need an IR blaster device like a Harmony Hub or a Broadlink RM3 to perform these functions directly from Google Assistant.  This is possible to do but is not covered in this project.
+Right, lets get started!
+
+You will probaly need to set up Port Forwarding on your Router to allow the IFTTT commands to get through to your Raspberry Pi.  I'll show you how I did it on my own BT Hub Router, but you may need to look elsewhere for specific instructions if yours is not a BT Router.
+
+You will also probably need to set up a free Dynamic IP addressing service as well, this will save you the trouble of always having to change your external IP address in IFTTT every couple of days/weeks.  Most ISPs have a Dynamic external IP address set up on your Router for security; that means to the outside world you internet address they can see is not static and it often changes.  I use a free service from NO-IP.com, but there are other free services out there too.  I'll show you how to set this up for a NO-IP.com free account.
+
+
 
 # No-IP.com
 
@@ -26,9 +32,10 @@ I used a Raspberry Pi 3 for development and testing, other versions should also 
 
 Use your Windows PC or Mac to write the latest Raspian image available from https://www.raspberrypi.org/downloads/raspbian/ to the 8Gb Micro SD card.  I use a programme called Etcher to write to the SD card on my Windows PC.
 
-Put the SD card into your Raspberry Pi and boot it up. Then open a terminal screen and type the following lines, one line at a time, pressing enter after each line:
+Put the SD card into your Raspberry Pi and boot it up!
 
-When you get to the desktop open a terminal screen and type the following line by line (pressing ENTER after each line):
+Once you are at the Desktop on the Raspberry Pi, then open a terminal screen  by clicking on the black box with a right arrow in it on the top left of yor Raspberry Pi screen.  In the Terminal screen just (just after the Raspberrypi:~$) type the following lines, one line at a time, pressing enter after each line:
+
 ```
 git clone https://github.com/VinceW31/SkyHD.git
 ```
@@ -38,17 +45,11 @@ sudo chmod +x /home/pi/SkyHD/installer.sh
 ```
 sudo /home/pi/SkyHD/installer.sh
 ```
-The installation script will now install everything for you, then it will wait for you to get your SKY Remote ready so that it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  
+The installation script will first ask you for your SkyHD box IP address, this can be founs from your Sky Box menu as follows:
+
+
+The installation script will now install everything for you over the next 10 to 15 min.  At the end it will wait for you to get your SKY Remote ready so that it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  
 When prompted you must point your SKY Remote directly downwards at the top of the BlackBean RM3 and press the appropriate button.  You will have 30 seconds to do this per command.
-
-When the installation script has finished then enter the following lines:
-
-```
-cd /home/pi/SkyHD
-```
-```
-sudo python SkyHD.py
-```
 
 At the moment you will need to correct the Sky box IP address at the top of SkyHD.py to match your own Sky Box IP address.
 
