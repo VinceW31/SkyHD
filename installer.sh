@@ -97,7 +97,7 @@ echo "To make your Raspberry Pi automatically start the SkyHD service after boot
 echo "then all you need to do is type the following in this, or a new terminal window:"
 echo ""
 echo "sudo nano /etc/rc.local"
-Echo ""
+echo ""
 echo "Then, in the file that opens up, click in the file window"
 echo "and scroll the cursor down with the cursor keys."
 echo "Just before the last line (exit 0), correctly add the following line:" 
