@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
-import broadlink, configparser
+import broadlink
+import ConfigParser
 import sys, getopt
 import time, binascii
 import netaddr
