@@ -45,7 +45,7 @@ echo "Installing sky-remote-cli....."
 echo ""
 sudo npm install -g sky-remote-cli -y
 
-#cd /home/pi/SkyHD
+cd /home/pi/SkyHD
 echo ""
 echo "Installing Broadlink BlackBean requirements.....(approx 5 mins)"
 #echo "Installing configparser.....(approx 2 mins)"
@@ -69,7 +69,7 @@ pip install -r blackbean_requirements.txt
 #pip install pycryptodome
 
 
-cd /home/pi/SkyHD
+#cd /home/pi/SkyHD
 
 echo ""
 echo "This is the end of the installation script."
