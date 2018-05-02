@@ -3,7 +3,8 @@ import time
 import skybox_ip
 from flask import Flask, redirect, request, url_for
 
-IP = skybox_ip.skyboxip
+#IP = skybox_ip.skyboxip
+IP = (str(skybox_ip.ip1) + "." + str(skybox_ip.ip2) + "." + str(skybox_ip.ip3) + "." + str(skybox_ip.ip4))
 print("SkyBox IP = " + IP)
 
 app = Flask(__name__)
@@ -154,36 +155,28 @@ def data_input(phrase):
 # Channel names (Switch to, change to, show, TV to, whats on, watch)
 
     if "channels" in phrase: 
-        
         if "sky news" in phrase: 
             os.system ("sky-remote-cli " + IP + " sky" + " 5" + " 0" + " 1")
             print("Sending - sky, 5, 0, 1")
-
         if "discovery" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " 5" + " 2" + " 0")
+            os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 2" + " 5")
             print("Sending - sky, 5, 2, 0")
-
         if "gold" in phrase: 
             os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 1" + " 0")
             print("Sending - sky, 1, 1, 0")
-
         if "dave" in phrase: 
             os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 1" + " 1")
             print("Sending - sky, 1, 1, 1")
-
         if "tlc" in phrase or "t l c" in phrase: 
             os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 2" + " 5")
             print("Sending - sky, 1, 2, 5")
-
         if "alibi" in phrase: 
             os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 3" + " 2")
             print("Sending - sky, 1, 3, 2")
-            
         if "f1" in phrase or "f 1" in phrase or "f one" in phrase or "Formula 1" in phrase: 
             os.system ("sky-remote-cli " + IP + " sky" + " 4" + " 0" + " 6")
             print("Sending - sky, 4, 0, 6")
-
-        if "atlantic" in phrase: # or "f 1" in phrase or "f one" in phrase or "formula 1" in phrase or "formula one" in phrase: 
+        if "atlantic" in phrase: 
             os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 8")
             print("Sending - sky, 1, 0, 8")
 
@@ -208,15 +201,27 @@ def data_input(phrase):
                 print("Sending - sky, 1, 1, 5")
 
         if "itv" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 7" + " 8")
-            print("Sending - sky, 1, 7, 8")
-
+            if "itv 1" in phrase or "itv one" in phrase: 
+                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 3")
+                print("Sending - sky, 1, 0, 3")
+            if "itv 2" in phrase or "itv one" in phrase: 
+                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 3")
+                print("Sending - sky, 1, 0, 3")
+            if "itv 3" in phrase or "itv one" in phrase: 
+                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 3")
+                print("Sending - sky, 1, 0, 3")
+            if "itv 4" in phrase or "itv one" in phrase: 
+                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 3")
+                print("Sending - sky, 1, 0, 3")
+            else:
+                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 3")
+                print("Sending - sky, 1, 0, 3")
 
         if "channels to channel" in phrase or "channels channel to" in phrase:
             print("phrase is " + phrase)
             if "channel 4" in phrase or "channel four" in phrase: 
-                os.system ("sky-remote-cli " + IP + " sky" + " 2" + " 2" + " 7")
-                print("Sending - sky, 2, 2, 7")
+                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 4")
+                print("Sending - sky, 1, 0, 4")
             elif "channel 5" in phrase or "channel five" in phrase: 
                 os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 5")
                 print("Sending - sky, 1, 0, 5")
