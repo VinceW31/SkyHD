@@ -1,6 +1,7 @@
 import os
 import ConfigParser
 import time
+import SkySettings
 from flask import Flask, redirect, request, url_for
 
 SettingsFile = ConfigParser.ConfigParser()
