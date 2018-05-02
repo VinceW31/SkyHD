@@ -5,7 +5,7 @@ from flask import Flask, redirect, request, url_for
 
 SettingsFile = configparser.ConfigParser()
 SettingsFile.optionxform = str
-SettingsFile.read(BlackBeanSettings.BlackBeanControlSettings)
+SettingsFile.read(SkySettings.SkyIPSettings)
 
 IP = SettingsFile.get(DeviceName, 'skyboxip')
 #IP = "192.168.1.83"
