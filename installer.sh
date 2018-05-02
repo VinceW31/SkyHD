@@ -25,7 +25,7 @@ then
 fi
 clear
 
-python3 GetSkyIP.py
+
 
 
 #echo ""
@@ -56,6 +56,8 @@ echo ""
 pip install -r blackbean_requirements.txt
 
 python path.py
+
+python3 GetSkyIP.py
 
 echo ""
 echo "Detecting and setting up BlackBean RM3....."
