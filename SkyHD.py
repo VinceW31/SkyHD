@@ -1,7 +1,7 @@
 import os
 import ConfigParser
 import time
-import SkySettings
+#import SkySettings
 import skybox_ip
 from flask import Flask, redirect, request, url_for
 
