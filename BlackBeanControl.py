@@ -117,7 +117,7 @@ def execute_command(
     elif AlternativeIPAddress != '':
         RealIPAddress = AlternativeIPAddress
     else:
-        RealIPAddress = Settings.IPAddress
+        RealIPAddress = BlackBeanSettings.IPAddress
 
     if RealIPAddress == '':
         print('IP address must exist in BlackBeanControl.ini or it should be entered as a command line parameter')
@@ -128,7 +128,7 @@ def execute_command(
     elif AlternativePort != '':
         RealPort = AlternativePort
     else:
-        RealPort = Settings.Port
+        RealPort = BlackBeanSettings.Port
 
     if RealPort == '':
         print('Port must exist in BlackBeanControl.ini or it should be entered as a command line parameter')
@@ -141,7 +141,7 @@ def execute_command(
     elif AlternativeMACAddress != '':
         RealMACAddress = AlternativeMACAddress
     else:
-        RealMACAddress = Settings.MACAddress
+        RealMACAddress = BlackBeanSettings.MACAddress
 
     if RealMACAddress == '':
         print('MAC address must exist in BlackBeanControl.ini or it should be entered as a command line parameter')
@@ -154,7 +154,7 @@ def execute_command(
     elif AlternativeTimeout != '':
         RealTimeout = AlternativeTimeout
     else:
-        RealTimeout = Settings.Timeout
+        RealTimeout = BlackBeanSettings.Timeout
 
     if RealTimeout == '':
         print('Timeout must exist in BlackBeanControl.ini or it should be entered as a command line parameter')
