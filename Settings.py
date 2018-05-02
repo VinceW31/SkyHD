@@ -7,8 +7,12 @@ SkyIPsettings =path.join(ApplicationDir, 'skybox_ip.ini')
 
 Settings = configparser.ConfigParser()
 Settings.read(BlackBeanControlSettings)
+SkySettings = configparser.ConfigParser()
+Settings2.read(SkySettings)
+
 
 IPAddress = Settings.get('General', 'IPAddress')
 Port = Settings.get('General', 'Port')
 MACAddress = Settings.get('General', 'MACAddress')
 Timeout = Settings.get('General', 'Timeout')
+SkyIP = Settings2.get('General', ' ')
