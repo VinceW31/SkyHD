@@ -3,7 +3,12 @@ import ConfigParser
 import time
 from flask import Flask, redirect, request, url_for
 
-IP = "192.168.1.83"
+SettingsFile = configparser.ConfigParser()
+SettingsFile.optionxform = str
+SettingsFile.read(BlackBeanSettings.BlackBeanControlSettings)
+
+IP = SettingsFile.get(DeviceName, 'skyboxip')
+#IP = "192.168.1.83"
 app = Flask(__name__)
 
 def find_character_code_sequence(char): #this is for the Search function
