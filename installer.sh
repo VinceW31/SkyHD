@@ -54,6 +54,7 @@ pip install -r blackbean_requirements.txt
 
 python path.py
 
+echo ""
 python3 GetSkyIP.py
 
 echo ""
