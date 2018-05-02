@@ -3,7 +3,7 @@ import ConfigParser
 import time
 from flask import Flask, redirect, request, url_for
 
-SettingsFile = configparser.ConfigParser()
+SettingsFile = ConfigParser.ConfigParser()
 SettingsFile.optionxform = str
 SettingsFile.read(SkySettings.SkyIPSettings)
 
