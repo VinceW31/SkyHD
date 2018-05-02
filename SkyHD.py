@@ -6,7 +6,7 @@ from flask import Flask, redirect, request, url_for
 IP = "192.168.1.83"
 app = Flask(__name__)
 
-def find_character_code_sequence(char):
+def find_character_code_sequence(char): #this is for the Search function
     if char == "a":
         character_code_sequence = " 2"
     elif char == "b":
