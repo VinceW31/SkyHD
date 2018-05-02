@@ -10,7 +10,7 @@ import re
 from os import path
 from Crypto.Cipher import AES
 
-SettingsFile = configparser.ConfigParser()
+SettingsFile = ConfigParser.ConfigParser()
 SettingsFile.optionxform = str
 SettingsFile.read(BlackBeanSettings.BlackBeanControlSettings)
 
