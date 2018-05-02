@@ -9,7 +9,7 @@ SettingsFile = ConfigParser.ConfigParser()
 SettingsFile.optionxform = str
 SettingsFile.read(SkySettings.SkyIPSettings)
 
-IP = SettingsFile.get(DeviceName, 'skyboxip')
+#IP = SettingsFile.get(DeviceName, 'skyboxip')
 IP = skybox_ip.skyboxip
 print("SkyBox IP is " + IP)
 #IP = "192.168.1.83"
