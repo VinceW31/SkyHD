@@ -8,7 +8,9 @@ SettingsFile.optionxform = str
 SettingsFile.read(SkySettings.SkyIPSettings)
 
 IP = SettingsFile.get(DeviceName, 'skyboxip')
+print("SkyBox IP is " + IP)
 #IP = "192.168.1.83"
+
 app = Flask(__name__)
 
 def find_character_code_sequence(char): #this is for the Search function
