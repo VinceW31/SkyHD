@@ -5,6 +5,6 @@ ApplicationDir = path.dirname(path.abspath(__file__))
 SkyIPsettings =path.join(ApplicationDir, 'skybox_ip.ini')
 
 Settings = configparser.ConfigParser()
-Settings.read(SkySettings)
+Settings.read(SkyIPSettings)
 
-SkyIP = Settings.get('General', 'skyboxip')
+skyboxip = Settings.get('General', 'skyboxip')
