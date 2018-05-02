@@ -24,9 +24,13 @@ then
     exec sudo -u $RUN_AS $0
 fi
 clear
-echo ""
-read -r -p "Enter your SkyHD box IP address (format = 192.168.xxx.xxx): " skyboxip
-echo ""
+
+python3 Sky_Settings.py
+
+
+#echo ""
+#read -r -p "Enter your SkyHD box IP address (format = 192.168.xxx.xxx): " skyboxip
+#echo ""
 
 cd /home/pi/
 
