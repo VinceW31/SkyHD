@@ -25,7 +25,7 @@ then
 fi
 clear
 
-python3 Sky_Settings.py
+python3 GetSkyIP.py
 
 
 #echo ""
