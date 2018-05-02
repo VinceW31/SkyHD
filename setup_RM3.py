@@ -22,17 +22,3 @@ data = ["[General]","IPAddress = " + ipadd,"Port = " + port,"MACAddress = " + ma
 with open("BlackBeanControl.ini", "w") as f:
     f.write('\n'.join(data))
 print("BlackBean RM3 found and details stored sucessfully in BlackBeanControl.ini file")
-
-#print("enter_learning (5s timeout) please press any key on remote to test")
-#devices[0].enter_learning()
-#time.sleep(5)
-#print("Check data")
-#ir_packet = devices[0].check_data()
-#if ir_packet:
-    #decode_command = binascii.hexlify(ir_packet).decode("ascii")
-    #print(decode_command)
-    #encode_command = binascii.unhexlify(decode_command)
-    #print("Test resend")
-    #devices[0].send_data(encode_command)
-#else:
-    #print("RM3 not receive any remote command")
