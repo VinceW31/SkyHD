@@ -3,7 +3,7 @@ from os import path
 
 ApplicationDir = path.dirname(path.abspath(__file__))
 BlackBeanControlSettings = path.join(ApplicationDir, 'BlackBeanControl.ini')
-SkyIPsettings =path.join(ApplicationDir, 'Sky_Settings.ini')
+SkyIPsettings =path.join(ApplicationDir, 'skybox_ip.ini')
 
 Settings = configparser.ConfigParser()
 Settings.read(BlackBeanControlSettings)
