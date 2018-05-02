@@ -25,9 +25,6 @@ then
 fi
 clear
 
-
-
-
 #echo ""
 #read -r -p "Enter your SkyHD box IP address (format = 192.168.xxx.xxx): " skyboxip
 #echo ""
@@ -65,34 +62,25 @@ echo ""
 python setup_RM3.py
 
 echo ""
-echo "Now its time to Learn the IR commands for TV Power, Mute, TV Vol Up and TV Vol Down....."
+echo "Now its time to Learn the IR commands for your TV"
 echo ""
-echo "You must point the SKY Remote at the top of the BlackBean RM3 and"
-echo "press the appropriate button on the Remote to allow it to learn each command."
+echo "You must point your TV Remote at the top of the BlackBean RM3 and"
+echo "press the appropriate button to allow it to learn each command in turn."
 echo "You will get 30 seconds learning time per command, so no rush!"
 echo ""
-echo "press Y on your keyboard when you are ready to continue with the SKY Remote" anykey
+
+read -r -p "Press Y on your keyboard when you are ready to continue with your TV Remote" anykey
 echo ""
-echo "Learning command for TV Power, you have 30 sec..... to  Mute, TV Vol Up and TV Vol Down....."
+echo "Press POWER button on TV remote, then wait for next step...."
 echo ""
+
 python BlackBeanControl.py -c POWER
-echo "press POWER button on remote"
-echo "Code displayed in terminal window and copied to ini file"
-
-echo "Waiting for you to press the SKY Remote button for TV Power....."
+echo "Press MUTE button on TV remote, then wait for next step...."
 python BlackBeanControl.py -c MUTE
-echo "press MUTE button on remote"
-echo "Code displayed in terminal window and copied to ini file"
-
-echo "Learning command for TV Power, you have 30 sec..... to  Mute, TV Vol Up and TV Vol Down....."
+echo "Press VOL UP button on TV remote, then wait for next step...."
 python BlackBeanControl.py -c VOLUP
-echo "press VOLUME UP button once on remote"
-echo "Code displayed in terminal window and copied to ini file"
-
-echo "Learning command for TV Power, you have 30 sec..... to  Mute, TV Vol Up and TV Vol Down....."
+echo "Press VOL DOWN button on TV remote, then wait for next step...."
 python BlackBeanControl.py -c VOLDOWN
-echo "press VOLUME DOWN button once on remote"
-echo "Code displayed in terminal window and copied to ini file"
 
 python SkyHD.py
 
