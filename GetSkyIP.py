@@ -1,4 +1,4 @@
-SKY = input ("Please enter your Sky Box IP address (format 192.168.xxx.xxx): "
+SKY = input ("Please enter your Sky Box IP address (format 192.168.xxx.xxx): ")
 data = ["skyboxip = " + SKY]
-with open("skybox_ip.ini", "w")
+with open("skybox_ip.ini", "w"):
     f.write("[General]",'/n'.join(data))
