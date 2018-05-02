@@ -70,7 +70,7 @@ echo "press the appropriate button to allow it to learn each command in turn."
 echo "You will get 30 seconds learning time per command, so no rush!"
 echo ""
 
-read -r -p "Press Y then ENTER on your keyboard when you are ready  " anykey
+read -r -p "Press ENTER on your keyboard when you are ready to proceed....  " anykey
 echo ""
 echo "Press POWER button on TV remote, then wait for next step...."
 echo ""
