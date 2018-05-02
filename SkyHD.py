@@ -1,18 +1,10 @@
 import os
-import ConfigParser
 import time
-#import SkySettings
 import skybox_ip
 from flask import Flask, redirect, request, url_for
 
-SettingsFile = ConfigParser.ConfigParser()
-SettingsFile.optionxform = str
-SettingsFile.read(SkySettings.SkyIPSettings)
-
-#IP = SettingsFile.get(DeviceName, 'skyboxip')
 IP = skybox_ip.skyboxip
-print("SkyBox IP is " + IP)
-#IP = "192.168.1.83"
+print("SkyBox IP = " + IP)
 
 app = Flask(__name__)
 
