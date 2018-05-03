@@ -127,41 +127,38 @@ def data_input(phrase):
     if "menus" in phrase:
         if "tv guide" in phrase or "tvguide" in phrase: 
             os.system ("sky-remote-cli " + IP + " sky" + " tvguide" + " select")
-            print("Sending - sky, tvguide, select")
 
         if "planner" in phrase or "planet" in phrase : 
             os.system ("sky-remote-cli " + IP + " sky" + " tvguide" + " down" + " select")
-            print("Sending - sky, tvguide, down, select")
 
         if "catch up" in phrase or "catchup" in phrase: 
             os.system ("sky-remote-cli " + IP + " sky" + " tvguide" + " right" + " select")
-            print("Sending - sky, tvguide, right, select")     
 
         if "movies" in phrase or "films" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " tvguide" + " select" + " right" + " right" + " right" + " right")
-            print("Sending - sky, tvguide, select, right, right, right, right")
+            os.system ("sky-remote-cli " + IP + " sky" + " tvguide" + " select" + " right" + " right" + " right" + " right" + " right")
             
         if "documentaries" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " tvguide" + " select" + " right" + " right")
-            print("Sending - sky, tvguide, select, right, right")
+            os.system ("sky-remote-cli " + IP + " sky" + " tvguide" + " select" + " right" + " right" + " right")
 
         if "favourites" in phrase: 
             os.system ("sky-remote-cli " + IP + " sky" + " tvguide" + " select" + " left")
-            print("Sending - sky, tvguide, select, left")   
+            
+        if "plus 1" in phrase or "plus one" in phrase: 
+            os.system ("sky-remote-cli " + IP + " sky" + " tvguide" + " select" + " right" + " right")
 
         if "next page" in phrase:
             os.system ("sky-remote-cli " + IP + " channeldown")
-            print("Sending - channel down")
 
         if "last page" in phrase or "back page" in phrase or "go back a page" in phrase:
             os.system ("sky-remote-cli " + IP + " channelup")
-            print("Sending - channel up")
+            
+        if "backup" in phrase or "back up" in phrase:
+            os.system ("sky-remote-cli " + IP + " backup")
 
 # Return to programme (return to, go back to)
 
     if "skybutton" in phrase:  
         os.system ("sky-remote-cli " + IP + " sky")
-        print("Sending - sky")
 
 # Recording (record programme, record this programme, record series)
 
