@@ -71,22 +71,6 @@ echo ""
 
 python3 RM3_Learn.py
 
-#echo "You will get 30 seconds learning time per command, so no rush!"
-#echo ""
-
-#read -r -p "Press ENTER on your keyboard when you are ready to proceed....  " anykey
-#echo ""
-#echo "Press POWER button on TV remote, then wait for next step...."
-#echo ""
-
-#python BlackBeanControl.py -c power
-#echo "Press MUTE button on TV remote, then wait for next step...."
-#python BlackBeanControl.py -c mute
-#echo "Press VOL UP button on TV remote, then wait for next step...."
-#python BlackBeanControl.py -c volup
-#echo "Press VOL DOWN button on TV remote, then wait for next step...."
-#python BlackBeanControl.py -c voldown
-
 python SkyHD.py
 
 echo ""
