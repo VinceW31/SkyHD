@@ -75,13 +75,13 @@ echo ""
 echo "Press POWER button on TV remote, then wait for next step...."
 echo ""
 
-python BlackBeanControl.py -c POWER
+python BlackBeanControl.py -c power
 echo "Press MUTE button on TV remote, then wait for next step...."
-python BlackBeanControl.py -c MUTE
+python BlackBeanControl.py -c mute
 echo "Press VOL UP button on TV remote, then wait for next step...."
-python BlackBeanControl.py -c VOLUP
+python BlackBeanControl.py -c volup
 echo "Press VOL DOWN button on TV remote, then wait for next step...."
-python BlackBeanControl.py -c VOLDOWN
+python BlackBeanControl.py -c voldown
 
 python SkyHD.py
 
