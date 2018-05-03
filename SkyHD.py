@@ -1,6 +1,7 @@
 import os
 import time
 import skybox_ip
+import SkyChannelList
 from flask import Flask, redirect, request, url_for
 
 IP = (str(skybox_ip.ip1) + "." + str(skybox_ip.ip2) + "." + str(skybox_ip.ip3) + "." + str(skybox_ip.ip4))
