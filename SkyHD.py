@@ -5,7 +5,7 @@ from flask import Flask, redirect, request, url_for
 
 IP = (str(skybox_ip.ip1) + "." + str(skybox_ip.ip2) + "." + str(skybox_ip.ip3) + "." + str(skybox_ip.ip4))
 print("SkyBox IP = ",IP)
-
+Vol_Range = 1
 app = Flask(__name__)
 
 def find_character_code_sequence(char): #this is for the Search function
@@ -104,17 +104,21 @@ def data_input(phrase):
 
 # TV control (IR Functions, if BlackBean RM3 is used)
     if "tvcontrol" in phrase:
-        if "on" in phrase or "off" in phrase:
-            os.system ("python BlackBeanControl.py -c POWER")
-            print("Sending TV POWER IR command")
-        if "mute" in phrase:
-            os.system ("python BlackBeanControl.py -c MUTE")
+        if "mute" in phrase or "unmute" in phrase:
+            os.system ("python BlackBeanControl.py -c mute")
             print("Sending TV MUTE IR command")
+        if "on" in phrase or "off" in phrase:
+            os.system ("python BlackBeanControl.py -c power")
+            print("Sending TV POWER IR command")
         if "up" in phrase:
-            os.system ("python BlackBeanControl.py -c VOLUP")
+            for i in range (Vol_Range):
+                os.system ("python BlackBeanControl.py -c volup")
+                time.sleep(.500)
             print("Sending TV VOLUP IR command")
         if "down" in phrase:
-            os.system ("python BlackBeanControl.py -c VOLDOWN")
+            for i in range (Vol_Range):
+                os.system ("python BlackBeanControl.py -c voldown")
+                time.sleep(.500)
             print("Sending TV VOLDOWN IR command")
     
 # menus (show, go to, whats on, ip/menus "text")
