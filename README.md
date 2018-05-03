@@ -45,7 +45,7 @@ sudo chmod +x /home/pi/SkyHD/installer.sh
 ```
 sudo /home/pi/SkyHD/installer.sh
 ```
-The installation script will first ask you for your SkyHD box IP address, this can be founs from your Sky Box menu as follows:
+The installation script will ask you for your SkyHD box IP address, this can be found from your Sky Box menu as follows:
 
 
 The installation script will now install everything for you over the next 10 to 15 min.  At the end it will wait for you to get your SKY Remote ready so that it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  
