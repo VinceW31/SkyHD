@@ -50,7 +50,7 @@ The installation script will now install everything for you over the next 10 to 
 
 The script will ask you for your SkyHD box IP address, this can be found from your Sky Box Network settings menu.
 
-At the end of the script it will try to detect the presence of a BlackBean RM3 device thats active on your WiFi network.  If its successful then the script will automatically upate the required files with your BlackBean settings.  If its not successful then it will just time out and carry on automatically without setting up a BlackBean device.  You can always add a BlackBean RM3 IR device at a later date and just run the RM3_Setup.py script to capture it.
+At the end of the script it will try to detect the presence of a BlackBean RM3 device thats active on your WiFi network.  If its successful then the script will automatically upate the required files with your BlackBean settings.  If its not successful then it will just time out and carry on automatically without setting up a BlackBean device.  You can always add a BlackBean RM3 IR device at a later date and just run the Setup_RM3.py script to capture it.
 
 wait for you to get your SKY Remote ready so it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  If you dont want to complete this element of the installation then just wait for it to time-out and detect nothing.  If you are continuing then, when prompted, you must point your TV/SKY Remote directly downwards towards the top of the BlackBean RM3 and then press the appropriate button.  
 
