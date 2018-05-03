@@ -34,7 +34,7 @@ Use your Windows PC or Mac to write the latest Raspian image available from http
 
 Put the SD card into your Raspberry Pi and boot it up!
 
-Once you are at the Desktop on the Raspberry Pi, then open a terminal screen  by clicking on the black box with a right arrow in it on the top left of yor Raspberry Pi screen.  In the Terminal screen just (just after the Raspberrypi:~$) type the following lines, one line at a time, pressing enter after each line:
+Once you are at the Desktop on the Raspberry Pi, then open a terminal screen  by clicking on the black box with a right arrow in it on the top left of yor Raspberry Pi screen.  In the Terminal screen (just after the Raspberrypi:~$) type the following lines, one line at a time, pressing enter after each line:
 
 ```
 git clone https://github.com/VinceW31/SkyHD.git
