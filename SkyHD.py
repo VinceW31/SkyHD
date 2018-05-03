@@ -6,6 +6,7 @@ from flask import Flask, redirect, request, url_for
 IP = (str(skybox_ip.ip1) + "." + str(skybox_ip.ip2) + "." + str(skybox_ip.ip3) + "." + str(skybox_ip.ip4))
 print("SkyBox IP = ",IP)
 Vol_Range = 1
+
 app = Flask(__name__)
 
 def find_character_code_sequence(char): #this is for the Search function
@@ -103,23 +104,23 @@ def data_input(phrase):
     print("Revised command is " + phrase)
 
 # TV control (IR Functions, if BlackBean RM3 is used)
-    if "tvcontrol" in phrase:
-        if "mute" in phrase or "unmute" in phrase:
+    if "tvir" in phrase:
+        if " mute" in phrase or " unmute" in phrase:
             os.system ("python BlackBeanControl.py -c mute")
-            print("Sending TV MUTE IR command")
-        if "on" in phrase or "off" in phrase:
-            os.system ("python BlackBeanControl.py -c power")
-            print("Sending TV POWER IR command")
-        if "up" in phrase:
+
+        elif " on" in phrase or " off" in phrase:
+            os.system ("python BlackBeanControl.py -c power" )
+
+        elif " up" in phrase:
             for i in range (Vol_Range):
                 os.system ("python BlackBeanControl.py -c volup")
                 time.sleep(.500)
-            print("Sending TV VOLUP IR command")
-        if "down" in phrase:
+
+        elif " down" in phrase:
             for i in range (Vol_Range):
                 os.system ("python BlackBeanControl.py -c voldown")
                 time.sleep(.500)
-            print("Sending TV VOLDOWN IR command")
+
     
 # menus (show, go to, whats on, ip/menus "text")
 
@@ -173,76 +174,63 @@ def data_input(phrase):
 # Channel names (Switch to, change to, show, TV to, whats on, watch)
 
     if "channels" in phrase: 
-        if "sky news" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " 5" + " 0" + " 1")
-            print("Sending - sky, 5, 0, 1")
+        
+        if "sky news" in phrase:
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.skynews)
+
         if "discovery" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 2" + " 5")
-            print("Sending - sky, 5, 2, 0")
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.discovery)
+
         if "gold" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 1" + " 0")
-            print("Sending - sky, 1, 1, 0")
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.gold)
+
         if "dave" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 1" + " 1")
-            print("Sending - sky, 1, 1, 1")
+             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.dave)
+
         if "tlc" in phrase or "t l c" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 2" + " 5")
-            print("Sending - sky, 1, 2, 5")
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.tlc)
+
         if "alibi" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 3" + " 2")
-            print("Sending - sky, 1, 3, 2")
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.alibi)
+            
         if "f1" in phrase or "f 1" in phrase or "f one" in phrase or "Formula 1" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " 4" + " 0" + " 6")
-            print("Sending - sky, 4, 0, 6")
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.f1)
+
         if "atlantic" in phrase: 
-            os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 8")
-            print("Sending - sky, 1, 0, 8")
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.atlantic)
+
+        if "universal" in phrase: 
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.universal)
+
+        if "national geographic" in phrase or "nat geo": 
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.nat_geo)
+
+        if "sky 1" in phrase or "sky one" in phrase: 
+                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.sky_1)          
+
 
         if "bbc" in phrase: 
             if "bbc 1" in phrase or "bbc one" in phrase: 
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 1" + " 5")
-                print("Sending - sky, 1, 1, 5")
+                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_1)
             elif "bbc 2" in phrase or "bbc to" in phrase or "bbc too" in phrase or "bbc two" in phrase: 
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 2")
-                print("Sending - sky, 1, 0, 2")
-            elif "bbc 3" in phrase or "bbc three" in phrase:  
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 2")
-                print("Sending - sky, 1, 0, 2")
+                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_2)
             elif "bbc 4" in phrase or "bbc four" in phrase:  
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 1" + " 6")
-                print("Sending - sky, 1, 1, 6")
+                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_4)
             elif "bbc local" in phrase or "bbc bristol" in phrase or "bbc south west" in phrase or "bbc west" in phrase:
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 1")
-                print("Sending - sky, 1, 0, 1")
+                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_local)
             else:
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 1" + " 5")
-                print("Sending - sky, 1, 1, 5")
+                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.skynews)
+
 
         if "itv" in phrase: 
-            if "itv 1" in phrase or "itv one" in phrase: 
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 3")
-                print("Sending - sky, 1, 0, 3")
-            if "itv 2" in phrase or "itv one" in phrase: 
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 3")
-                print("Sending - sky, 1, 0, 3")
-            if "itv 3" in phrase or "itv one" in phrase: 
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 3")
-                print("Sending - sky, 1, 0, 3")
-            if "itv 4" in phrase or "itv one" in phrase: 
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 3")
-                print("Sending - sky, 1, 0, 3")
-            else:
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 3")
-                print("Sending - sky, 1, 0, 3")
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.itv_1)
 
         if "channels to channel" in phrase or "channels channel to" in phrase:
             print("phrase is " + phrase)
             if "channel 4" in phrase or "channel four" in phrase: 
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 4")
-                print("Sending - sky, 1, 0, 4")
+                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.ch_4)
             elif "channel 5" in phrase or "channel five" in phrase: 
-                os.system ("sky-remote-cli " + IP + " sky" + " 1" + " 0" + " 5")
-                print("Sending - sky, 1, 0, 5")
+                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.ch_5)
             else:
                 print("channel number detected in phrase?")
                 word_list = phrase.split()
