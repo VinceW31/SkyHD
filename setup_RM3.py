@@ -26,6 +26,24 @@ with open("BlackBeanControl.ini", "w") as f:
 print("BlackBean RM3 found and details stored sucessfully in BlackBeanControl.ini file")
 
 # Learn IR commands
+
+print("\n","Now its time to Learn the IR commands for your TV")
+print("\n")
+print("\n","You must point your TV Remote towards the top of the BlackBean RM3 and ")
+print("\n","press the appropriate button to allow it to learn each command in turn.")
+
+print("\n","Once you press the Enter key below the script will wait 30 sec for you to ")
+print("\n","get your TV/SKY remote ready and be next to the BlackBean RM3.")
+print("\n","The White light on the BlackBean RM3 will come on after the 30 sec is up, ")
+print("\n","this indicates its in learning mode and waiting for you to press a Remote button.")
+print("\n","At the first White light press the TV POWER button, ")
+print("\n","at the next White light a few seconds later press the MUTE button, ")
+print("\n","then its the VOL UP button (hold for 1 sec), and finally on the 4th white light "
+       ")
+print("\n","its the VOL DOWN button (again, hold for 1 sec)")
+for the first time then press the TV/SKY Remote Power button
+
+
 anykey = input("Press Enter on keyboard when you are ready to proceed")
 time.sleep(1)
 print("\n","Waiting for POWER button to be pressed")
