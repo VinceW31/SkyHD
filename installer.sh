@@ -67,21 +67,24 @@ echo "Now its time to Learn the IR commands for your TV"
 echo ""
 echo "You must point your TV Remote at the top of the BlackBean RM3 and"
 echo "press the appropriate button to allow it to learn each command in turn."
-echo "You will get 30 seconds learning time per command, so no rush!"
-echo ""
 
-read -r -p "Press ENTER on your keyboard when you are ready to proceed....  " anykey
-echo ""
-echo "Press POWER button on TV remote, then wait for next step...."
-echo ""
+python3 RM3_Learn.py
 
-python BlackBeanControl.py -c power
-echo "Press MUTE button on TV remote, then wait for next step...."
-python BlackBeanControl.py -c mute
-echo "Press VOL UP button on TV remote, then wait for next step...."
-python BlackBeanControl.py -c volup
-echo "Press VOL DOWN button on TV remote, then wait for next step...."
-python BlackBeanControl.py -c voldown
+#echo "You will get 30 seconds learning time per command, so no rush!"
+#echo ""
+
+#read -r -p "Press ENTER on your keyboard when you are ready to proceed....  " anykey
+#echo ""
+#echo "Press POWER button on TV remote, then wait for next step...."
+#echo ""
+
+#python BlackBeanControl.py -c power
+#echo "Press MUTE button on TV remote, then wait for next step...."
+#python BlackBeanControl.py -c mute
+#echo "Press VOL UP button on TV remote, then wait for next step...."
+#python BlackBeanControl.py -c volup
+#echo "Press VOL DOWN button on TV remote, then wait for next step...."
+#python BlackBeanControl.py -c voldown
 
 python SkyHD.py
 
