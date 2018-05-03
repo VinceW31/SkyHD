@@ -105,17 +105,17 @@ def data_input(phrase):
 # TV control (IR Functions, if BlackBean RM3 is used)
     if "tvcontrol" in phrase:
         if "on" in phrase or "off" in phrase:
-            os.system (python BlackBeanControl.py -c POWER)
-            print("Sending TV POWER IR command)
+            os.system ("python BlackBeanControl.py -c POWER")
+            print("Sending TV POWER IR command")
         if "mute" in phrase:
-            os.system (python BlackBeanControl.py -c MUTE)
-            print("Sending TV MUTE IR command)
+            os.system ("python BlackBeanControl.py -c MUTE")
+            print("Sending TV MUTE IR command")
         if "up" in phrase:
-            os.system (python BlackBeanControl.py -c VOLUP)
-            print("Sending TV VOLUP IR command)
+            os.system ("python BlackBeanControl.py -c VOLUP")
+            print("Sending TV VOLUP IR command")
         if "down" in phrase:
-            os.system (python BlackBeanControl.py -c VOLDOWN)
-            print("Sending TV VOLDOWN IR command)
+            os.system ("python BlackBeanControl.py -c VOLDOWN")
+            print("Sending TV VOLDOWN IR command")
     
 # menus (show, go to, whats on, ip/menus "text")
 
