@@ -200,7 +200,7 @@ def data_input(phrase):
         if "universal" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.universal)
 
-        if "national geographic" in phrase or "nat geo": 
+        if "national geographic" in phrase or "nat geo" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.nat_geo)
 
         if "sky 1" in phrase or "sky one" in phrase: 
