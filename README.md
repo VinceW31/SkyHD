@@ -45,13 +45,14 @@ sudo chmod +x /home/pi/SkyHD/installer.sh
 ```
 sudo /home/pi/SkyHD/installer.sh
 ```
+
+The installation script will now install everything for you over the next 10 to 15 min.  
 The installation script will ask you for your SkyHD box IP address, this can be found from your Sky Box menu as follows:
 
-
-The installation script will now install everything for you over the next 10 to 15 min.  At the end it will wait for you to get your SKY Remote ready so that it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  
+At the end it will wait for you to get your SKY Remote ready so that it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  
 When prompted you must point your SKY Remote directly downwards at the top of the BlackBean RM3 and press the appropriate button.  You will have 30 seconds to do this per command.
 
-At the moment you will need to correct the Sky box IP address at the top of SkyHD.py to match your own Sky Box IP address.
+
 
 
 #### Remote control commands supported
