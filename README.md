@@ -22,6 +22,21 @@ You will also probably need to set up a free Dynamic IP addressing service as we
 
 Text here
 
+Our Dynamic Update Client runs on your computer and checks frequently for an IP address change. When a different IP address is detected, the DUC automatically updates your hostname to the correct IP address.
+
+Choose your Operating System and follow the installation instructions below.
+
+Download the DUC and save the file to: /usr/local/src
+Open terminal and execute the following:
+cd /usr/local/src
+tar xzf noip-duc-linux.tar.gz
+cd no-ip-2.1.9
+make
+make install
+Create the configuration file: /usr/local/bin/noip2 -C
+You will be prompted to enter your username and password for No-IP, and for the hostnames you wish to update.
+Launch the DUC: /usr/local/bin/noip2
+
 # IFTTT
 
 Text here
