@@ -60,16 +60,16 @@ python3 GetSkyIP.py
 echo ""
 echo "Detecting and setting up BlackBean RM3....."
 echo ""
-python setup_RM3.py
+python3 setup_RM3.py
 
-echo ""
-echo "Now its time to Learn the IR commands for your TV"
-echo ""
-echo "You must point your TV Remote at the top of the BlackBean RM3 and"
-echo "press the appropriate button to allow it to learn each command in turn."
-echo ""
+#echo ""
+#echo "Now its time to Learn the IR commands for your TV"
+#echo ""
+#echo "You must point your TV Remote at the top of the BlackBean RM3 and"
+#echo "press the appropriate button to allow it to learn each command in turn."
+#echo ""
 
-python3 RM3_Learn.py
+#python3 RM3_Learn.py
 
 python SkyHD.py
 
