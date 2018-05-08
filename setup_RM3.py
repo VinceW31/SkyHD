@@ -5,11 +5,12 @@ import os
 import re
 import binascii
 
-print("\n","At this point you can now setup the Optional BlackBean RM3 IR device if you have one, ")
-print("\n","however, this can also be done at any time if you decide to get one at a later date ")
-print("\n","by running the setup_RM3.py script in the SkyHD folder.")
-print("\n","If you decide to proceed then make sure your RM3 is powered and is correctly set up ")
-print("\n","through its own App to be visible on your Wifi network (see the BlackBean instructions)")
+print("\n","At this point you can now setup the Optional BlackBean RM3 IR device, ")
+print("however, this can also be done at a later time or date ")
+print("by running the setup_RM3.py script in the SkyHD folder.")
+print("If you decide to proceed then make sure your RM3 is powered ")
+print("and is correctly set up through its own App to be visible 
+print("on your Wifi network (see the BlackBean instructions).")
 print("\n")
 reply = input("Do you want to setup a BlackBean RM3 IR device now? Y/N ")
       
