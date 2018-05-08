@@ -20,7 +20,7 @@ def check_valid():
    try:
       ip_split()
    except:
-      check_reply = raw_input("Invalid format, do you want to try again? (Y/N)")
+      check_reply = input ("Invalid format, do you want to try again? (Y/N) ")
       if check_reply == "y":
          retry()
       else:
