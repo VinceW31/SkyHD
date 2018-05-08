@@ -11,7 +11,7 @@ print("\n","by running the setup_RM3.py script in the SkyHD folder.")
 print("\n","If you decide to proceed then make sure your RM3 is powered and is correctly set up ")
 print("\n","through its own App to be visible on your Wifi network (see the BlackBean instructions)")
 print("\n")
-reply = input("Do you want to setup a BlackBean RM3 IR device now? Y/N")
+reply = input("Do you want to setup a BlackBean RM3 IR device now? Y/N ")
       
 if reply == "y":
     print("\n")
@@ -62,7 +62,6 @@ if reply == "y":
     print("\n","Waiting for VOL DOWN button to be pressed")
     os.system ("python BlackBeanControl.py -c voldown")
 else:
-    print("\n")
     print("\n","OK, proceeding without setting up (or changing current setup for) ")
     print("\n","BlackBean RM3 device")
     print("\n")
