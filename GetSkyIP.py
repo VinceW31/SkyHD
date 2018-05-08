@@ -27,9 +27,11 @@ def check_valid():
          print("You must have a vaild IP address for your SkyHD Box to proceed")
    
 def get_input():
+   global sky
    sky = input ("Please enter your SkyHD Box IP address (format 192.168.xxx.xxx): ")
 
 def ip_split(): 
+   global sky
    global ip1
    global ip2
    global ip3
