@@ -1,4 +1,7 @@
-
+global ip1
+global ip2
+global ip3
+global ip4
 
 
 #get_input()
