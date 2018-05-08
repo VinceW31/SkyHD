@@ -14,7 +14,7 @@ def retry():
    get_input()
    check_valid()
    Print_IP()
-   Write_to_file()
+   write_to_file()
    
 def check_valid():
    try:
@@ -69,4 +69,4 @@ def write_to_file():
 get_input()
 check_valid()
 Print_IP()
-Write_to_file()
+write_to_file()
