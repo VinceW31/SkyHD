@@ -5,10 +5,10 @@ import os
 import re
 import binascii
 
-print("\n","At this point you can now setup the Optional BlackBean RM3 IR device if you have one, "
-print("\n","however, this can also be done at any time if you decide to get one at a later date "
+print("\n","At this point you can now setup the Optional BlackBean RM3 IR device if you have one, ")
+print("\n","however, this can also be done at any time if you decide to get one at a later date ")
 print("\n","by running the setup_RM3.py script in the SkyHD folder.")
-print("\n","If you decide to proceed then make sure your RM3 is powered and is correctly set up "
+print("\n","If you decide to proceed then make sure your RM3 is powered and is correctly set up ")
 print("\n","through its own App to be visible on your Wifi network (see the BlackBean instructions)")
 print("\n")
 reply = input("Do you want to setup a BlackBean RM3 IR device now? Y/N")
@@ -63,7 +63,7 @@ if reply == "y":
     os.system ("python BlackBeanControl.py -c voldown")
 else:
     print("\n")
-    print("\n","OK, proceeding without setting up (or changing current setup for) "
+    print("\n","OK, proceeding without setting up (or changing current setup for) ")
     print("\n","BlackBean RM3 device")
     print("\n")
 
