@@ -40,10 +40,10 @@ def ip_split():
    ip4 = sky.split('.',3)[3]
    
 def Print_IP():
-   #global ip1
-   #global ip2
-   #global ip3
-   #global ip4
+   global ip1
+   global ip2
+   global ip3
+   global ip4
    print(ip1,ip2,ip3,ip4)
    print(ip1)
    print(ip2)
@@ -51,10 +51,10 @@ def Print_IP():
    print(ip4)
    
 def write_to_file():
-   #global ip1
-   #global ip2
-   #global ip3
-   #global ip4
+   global ip1
+   global ip2
+   global ip3
+   global ip4
    with open("skybox_ip.py", "w") as f:
       f.write("ip1 = " + ip1)
       f.write("\n")
