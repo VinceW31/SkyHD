@@ -1,10 +1,10 @@
 
 
 
-get_input()
-check_valid()
-Print_IP()
-Write_to_file()
+#get_input()
+#check_valid()
+#Print_IP()
+#Write_to_file()
 
 
 def retry():
@@ -48,3 +48,8 @@ def write_to_file():
       f.write("ip3 = " + ip3)
       f.write("\n")
       f.write("ip4 = " + ip4)
+
+get_input()
+check_valid()
+Print_IP()
+Write_to_file()
