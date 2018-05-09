@@ -67,5 +67,5 @@ if reply == "y":
     os.system ("python BlackBeanControl.py -c voldown")
 else:
     print("OK, proceeding without setting up BlackBean RM3 device. ")
-   print("\n")
+    print("\n")
 
