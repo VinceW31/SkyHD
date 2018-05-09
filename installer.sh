@@ -62,7 +62,7 @@ echo ""
 python3 GetSkyIP.py
 
 echo ""
-python SkyHD.py
+python3 SkyHD.py
 
 echo ""
 echo "This is the end of the installation script."
