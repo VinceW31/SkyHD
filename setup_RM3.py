@@ -38,7 +38,8 @@ if reply == "y":
     print("BlackBean RM3 found and details stored sucessfully in BlackBeanControl.ini file")
 
     # Learn IR commands
-    print("\n","Now its time to Learn the IR commands for your TV")
+    print("\n")
+    print("Now its time to Learn the IR commands for your TV")
     print("\n")
     print("You must point your TV Remote towards the top of the BlackBean RM3 and ")
     print("press the appropriate button to allow it to learn each command in turn.")
