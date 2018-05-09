@@ -69,8 +69,7 @@ If the script successfully detects the BlackBean RM3 then it will automatically 
 
 A white light will come on at the bottom of the BlackBean RM3 after the 30 sec is up, this shows its in learning mode and waiting for you to press a button on your TV/Sky Remote.
 When you see the first white light press the TV POWER button, then the light will go off.
-About 10 seconds later at the second white light press the MUTE button, at the third white light its the VOL UP button (hold for 1 sec) 
-and finally on the 4th its the VOL DOWN button (again, hold for 1 sec). So, the button sequence to remember is: TV POWER, MUTE, VOL UP, VOL DOWN.
+About 10 seconds later, at the second white light, press the MUTE button, at the third white light its the VOL UP button (hold for 1 sec) and finally on the 4th its the VOL DOWN button (again, hold for 1 sec). So, the button sequence to remember is: TV POWER, MUTE, VOL UP, VOL DOWN.
 
 If you want, you can always try again or go back and add a BlackBean RM3 device at a later date by just running the Setup_RM3.py script again.
 
