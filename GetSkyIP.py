@@ -1,31 +1,24 @@
-#global ip1
-#global ip2
-#global ip3
-#global ip4
-
-
-#get_input()
-#check_valid()
-#Print_IP()
-#Write_to_file()
-
+import sys
 
 def retry():
    get_input()
    check_valid()
-   #Print_IP()
    write_to_file()
    
 def check_valid():
    try:
       ip_split()
    except:
-      check_reply = input ("Invalid format, do you want to try again? (Y/N) ")
-      if check_reply == "y":
-         retry()
-      else:
-         print("You must have a vaild IP address for your SkyHD Box to proceed")
-   
+      error_message()
+
+def error_message():
+   check_reply = input ("Invalid format, do you want to try again? (Y/N) ")
+   if check_reply == "y":
+      retry()
+   else:
+      print("\n","You must have a vaild IP address for your SkyHD Box to proceed.")
+      sys.exit()
+         
 def get_input():
    global sky
    sky = input ("Please enter your SkyHD Box IP address (format 192.168.xxx.xxx): ")
@@ -40,18 +33,7 @@ def ip_split():
    ip2 = sky.split('.',3)[1]
    ip3 = sky.split('.',3)[2]
    ip4 = sky.split('.',3)[3]
-   
-def Print_IP():
-   global ip1
-   global ip2
-   global ip3
-   global ip4
-   print(ip1,ip2,ip3,ip4)
-   print(ip1)
-   print(ip2)
-   print(ip3)
-   print(ip4)
-   
+
 def write_to_file():
    global ip1
    global ip2
@@ -68,5 +50,5 @@ def write_to_file():
 
 get_input()
 check_valid()
-#Print_IP()
 write_to_file()
+
