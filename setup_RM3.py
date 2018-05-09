@@ -5,7 +5,7 @@ import os
 import re
 import binascii
 
-print("\n","At this point you can now setup the Optional BlackBean RM3 IR device, ")
+print("At this point you can now setup the Optional BlackBean RM3 IR device, ")
 print("however, this can also be done at a later time or date ")
 print("by running the setup_RM3.py script in the SkyHD folder.")
 print("If you decide to proceed then make sure your RM3 is powered ")
