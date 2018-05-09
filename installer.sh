@@ -49,15 +49,19 @@ pip install -r blackbean_requirements.txt
 
 python path.py
 
+#echo ""
+#python3 GetSkyIP.py
+
+echo ""
+echo "Detecting and setting up BlackBean RM3....."
+
+echo ""
+python3 setup_RM3.py
+
 echo ""
 python3 GetSkyIP.py
 
 echo ""
-echo "Detecting and setting up BlackBean RM3....."
-echo ""
-
-python3 setup_RM3.py
-
 python SkyHD.py
 
 echo ""
