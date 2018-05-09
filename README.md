@@ -63,11 +63,19 @@ sudo /home/pi/SkyHD/installer.sh
 
 The installation script will now install everything for you over the next 10 to 15 min. 
 
+The script will ask you if you want to install the optional BlackBean RM3 device, this  will allow you to control your TV IR commands like TV Power On/Off, Mute, Volume Up and Volume down.  If you select NO then it will skip this section, if you choose YES then it will continue and try to detect the BlackBean RM3 assuming its already active on your WiFi network. You MUST have already setup your BlackBean RM3 beforehand to be visible on your own WiFi network by following its own instructions.
+
+If the script successfully detects the BlackBean RM3 then it will automatically update the relevant files and continue. The script will  wait for you to get your SKY Remote ready so it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  If you dont want to complete this element of the installation then just wait for it to time-out and detect nothing.  If you are continuing then, when prompted, you must point your TV/SKY Remote directly downwards towards the top of the BlackBean RM3 and then press the appropriate button. 
+
+
+
+
+You can always go back and add a BlackBean RM3 device at a later date by just running the Setup_RM3.py script to capture it.
+
+ 
+
+
 The script will ask you for your SkyHD box IP address, this can be found from your Sky Box Network settings menu.
-
-At the end of the script it will try to detect the presence of a BlackBean RM3 device thats active on your WiFi network.  If its successful then the script will automatically upate the required files with your BlackBean settings.  If its not successful then it will just time out and carry on automatically without setting up a BlackBean device.  You can always add a BlackBean RM3 IR device at a later date and just run the Setup_RM3.py script to capture it.
-
-wait for you to get your SKY Remote ready so it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  If you dont want to complete this element of the installation then just wait for it to time-out and detect nothing.  If you are continuing then, when prompted, you must point your TV/SKY Remote directly downwards towards the top of the BlackBean RM3 and then press the appropriate button.  
 
 To make this program Auto-start on Raspberry Pi Boot up or Reboot then all you need to do is the following:
 
