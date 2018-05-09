@@ -69,10 +69,19 @@ At the end of the script it will try to detect the presence of a BlackBean RM3 d
 
 wait for you to get your SKY Remote ready so it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down.  If you dont want to complete this element of the installation then just wait for it to time-out and detect nothing.  If you are continuing then, when prompted, you must point your TV/SKY Remote directly downwards towards the top of the BlackBean RM3 and then press the appropriate button.  
 
+To make this program Auto-start on Raspberry Pi Boot up or Reboot then all you need to do is the following:
 
+Type the next line in a new terminal window:
+```
+sudo nano /etc/rc.local
+```
+Then, in the file that opens up, click in the file window and scroll the cursor down with the cursor keys.  Just before the last line (exit 0), correctly add the following line:
+```
+/bin/sleep 15 && cd /home/pi/SkyHD/ && python3 SkyHD.py &
+```
+Then save the file with Ctrl X, press Y, and press Enter. This will automatically start the SkyHD service for you 15 seconds after Pi boot-up. So, Reboot your Raspberry Pi and try it!
 
-
-#### Remote control commands supported
+#### SkyHD Remote control commands supported
 
 `sky` `power`
 
