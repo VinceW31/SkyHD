@@ -65,9 +65,9 @@ The installation script will now install everything for you over the next 10 to 
 
 The script will ask you if you want to install the optional BlackBean RM3 device, this  will allow you to control your TV IR commands like TV Power On/Off, Mute, Volume Up and Volume down.  If you select NO then it will skip this section, if you choose YES then it will continue and try to detect the BlackBean RM3 assuming its already active on your WiFi network. You MUST have already setup your BlackBean RM3 beforehand to be visible on your own WiFi network by following its own instructions.
 
-If the script successfully detects the BlackBean RM3 then it will automatically update the relevant files and continue. The script will  now wait 30 sec for you to get your SKY Remote ready so it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down. When prompted, you must point your TV/SKY Remote directly downwards towards the top of the BlackBean RM3 and then press the appropriate button. 
+If the script successfully detects the BlackBean RM3 then it will automatically update the relevant files and continue. The script will  now wait 30 sec for you to get your SKY Remote ready so it can learn your TV's IR commands for TV Power On/Off, Mute, TV Vol Up and TV Vol Down. When prompted, you must point your TV/SKY Remote directly downwards towards the top of the BlackBean RM3 and then press the appropriate button on the TV/SKY Remote. 
 
-A WHITE light will come on at the bottom of the BlackBean RM3 after the 30 sec is up, this shows its in learning mode and waiting for you to press a button on your TV/Sky Remote.
+A white light will come on at the bottom of the BlackBean RM3 after the 30 sec is up, this shows its in learning mode and waiting for you to press a button on your TV/Sky Remote.
 When you see the first white light press the TV POWER button, then the light will go off.
 About 10 seconds later at the second white light press the MUTE button, at the third white light its the VOL UP button (hold for 1 sec) 
 and finally on the 4th its the VOL DOWN button (again, hold for 1 sec). So, the button sequence to remember is: TV POWER, MUTE, VOL UP, VOL DOWN.
