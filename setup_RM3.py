@@ -64,7 +64,6 @@ if reply == "y":
     print("\n","Waiting for VOL DOWN button to be pressed")
     os.system ("python BlackBeanControl.py -c voldown")
 else:
-    print("\n","OK, proceeding without setting up (or changing current setup for) ")
-    print("\n","BlackBean RM3 device")
-    print("\n")
+    print("OK, proceeding without setting up BlackBean RM3 device. ")
+   print("\n")
 
