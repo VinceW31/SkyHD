@@ -53,9 +53,10 @@ if reply == "y":
     print("at the third white light its the VOL UP button (hold for 1 sec),")
     print("and finally on the 4th its the VOL DOWN button (again, hold for 1 sec)")
     print("\n")
-    print("So, the sequence is: TV POWER, MUTE, VOL UP, VOL DOWN.")
+    print("So, the button sequence is: TV POWER, MUTE, VOL UP, VOL DOWN.")
+    print("\n")
 
-    anykey = input("Press Enter on keyboard when you are ready to proceed")
+    anykey = input("Press Enter on keyboard when you are ready to proceed  ")
     time.sleep(1)
     print("\n","Waiting for POWER button to be pressed")
     time.sleep(20)
