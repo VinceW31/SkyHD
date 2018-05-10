@@ -7,6 +7,7 @@ from flask import Flask, redirect, request, url_for
 IP = (str(skybox_ip.ip1) + "." + str(skybox_ip.ip2) + "." + str(skybox_ip.ip3) + "." + str(skybox_ip.ip4))
 print("SkyBox IP = ",IP)
 Vol_Range = 1
+delay = 0.5000
 
 app = Flask(__name__)
 
