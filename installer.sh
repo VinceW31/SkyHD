@@ -65,7 +65,7 @@ echo ""
 echo "This is the end of the installation script."
 echo ""
 echo "To make your Raspberry Pi automatically start the SkyHD service after boot-up"
-echo "please see the README file in the SkyHD folder. ")
+echo "please see the README file in the SkyHD folder. "
 
 echo ""
 python3 SkyHD.py
