@@ -68,4 +68,6 @@ echo "To make your Raspberry Pi automatically start the SkyHD service after boot
 echo "please see the README file in the SkyHD folder. "
 
 echo ""
+echo "The SkyHD service is now running....."
+echo ""
 python3 SkyHD.py
