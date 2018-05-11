@@ -27,8 +27,9 @@ fi
 clear
 cd /home/pi/
 
-sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /usr/local/src
-sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /home/pi/SkyHD
+#sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /usr/local/src
+#sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /home/pi/SkyHD
+sudo cp -R /home/pi/SkyHD/noip-duc-linux.tar.gz /usr/local/src
 cd /usr/local/src
 sudo tar xzf noip-duc-linux.tar.gz
 cd /usr/local/src/noip-2.1.9-1/
