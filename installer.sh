@@ -75,27 +75,11 @@ sudo cp -R /home/pi/SkyHD/noip-duc-linux.tar.gz /usr/local/src
 cd /usr/local/src
 sudo tar xzf noip-duc-linux.tar.gz
 cd /usr/local/src/noip-2.1.9-1/
-
 echo ""
 echo "Insatlling No-IP DUC"
 sudo make
-
-#echo ""
-#echo "make install"
 sudo make install
-
-#echo ""
-#echo "sudo /usr/local/bin/noip2 -C"
-#sudo /usr/local/bin/noip2 -C
-
-echo ""
-echo "sudo /usr/local/bin/noip2"
 sudo /usr/local/bin/noip2
-
-echo ""
-echo "sudo /usr/local/bin/noip2 -S"
-sudo /usr/local/bin/noip2 -S
-
 cd /home/pi/SkyHD
 
 echo ""
@@ -104,8 +88,10 @@ python3 GetSkyIP.py
 echo ""
 echo "This is the end of the installation script."
 echo ""
+echo"*********************************************************************************"
 echo "To make your Raspberry Pi automatically start the SkyHD service after boot-up"
 echo "please see the README file in the SkyHD folder. "
+echo"*********************************************************************************"
 
 echo ""
 echo "The SkyHD service is now running....."
