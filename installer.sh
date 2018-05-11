@@ -77,16 +77,16 @@ sudo tar xzf noip-duc-linux.tar.gz
 cd /usr/local/src/noip-2.1.9-1/
 
 echo ""
-echo "make"
+echo "Insatlling No-IP DUC"
 sudo make
 
-echo ""
-echo "make install"
+#echo ""
+#echo "make install"
 sudo make install
 
-echo ""
-echo "sudo /usr/local/bin/noip2 -C"
-sudo /usr/local/bin/noip2 -C
+#echo ""
+#echo "sudo /usr/local/bin/noip2 -C"
+#sudo /usr/local/bin/noip2 -C
 
 echo ""
 echo "sudo /usr/local/bin/noip2"
