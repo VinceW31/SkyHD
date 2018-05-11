@@ -59,15 +59,6 @@ echo ""
 python3 setup_RM3.py
 
 # setup noip DUC
-#sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /usr/local/src
-#sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /home/pi/SkyHD
-sudo cp -R /home/pi/SkyHD/noip-duc-linux.tar.gz /usr/local/src
-cd /usr/local/src
-sudo tar xzf noip-duc-linux.tar.gz
-cd /usr/local/src/noip-2.1.9-1/
-sudo make
-sudo make install
-
 echo ""
 echo "You must have already created a FREE Dynamic IP account at noip.com "
 echo "before proceeding, because you will need to enter the username and "
@@ -78,8 +69,31 @@ echo ""
 echo "if you want to skip this step then just press Enter at the Username "
 echo "and Password prompts."
 
+#sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /usr/local/src
+#sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /home/pi/SkyHD
+sudo cp -R /home/pi/SkyHD/noip-duc-linux.tar.gz /usr/local/src
+cd /usr/local/src
+sudo tar xzf noip-duc-linux.tar.gz
+cd /usr/local/src/noip-2.1.9-1/
+
+echo ""
+echo "make"
+sudo make
+
+echo ""
+echo "make install"
+sudo make install
+
+echo ""
+echo "sudo /usr/local/bin/noip2 -C"
 sudo /usr/local/bin/noip2 -C
+
+echo ""
+echo "sudo /usr/local/bin/noip2"
 sudo /usr/local/bin/noip2
+
+echo ""
+echo "sudo /usr/local/bin/noip2 -S"
 sudo /usr/local/bin/noip2 -S
 
 cd /home/pi/SkyHD
