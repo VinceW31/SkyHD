@@ -58,7 +58,7 @@ if reply == "y":
 
     anykey = input("Press Enter on keyboard when you are ready to proceed  ")
     time.sleep(1)
-    print("\n","Waiting for POWER button to be pressed")
+    print("\n","Waiting for TV POWER button to be pressed on the SKY Remote")
     time.sleep(20)
     os.system ("python BlackBeanControl.py -c power")
     print("\n","Waiting for MUTE button to be pressed")
