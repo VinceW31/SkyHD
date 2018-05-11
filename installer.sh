@@ -58,6 +58,32 @@ echo "Detecting and setting up BlackBean RM3....."
 echo ""
 python3 setup_RM3.py
 
+# setup noip DUC
+#sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /usr/local/src
+#sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /home/pi/SkyHD
+sudo cp -R /home/pi/SkyHD/noip-duc-linux.tar.gz /usr/local/src
+cd /usr/local/src
+sudo tar xzf noip-duc-linux.tar.gz
+cd /usr/local/src/noip-2.1.9-1/
+sudo make
+sudo make install
+
+echo ""
+echo "You must have already created a FREE Dynamic IP account at noip.com "
+echo "before proceeding, because you will need to enter the username and "
+echo "password for the noip account in the next steps."
+echo "If you have not already done this, then do it now on your PC/Mac etc"
+echo "or use the Raspberry Pi Browser (noip.com); this script will wait."
+echo ""
+echo "if you want to skip this step then just press Enter at the Username "
+echo "and Password prompts."
+
+sudo /usr/local/bin/noip2 -C
+sudo /usr/local/bin/noip2
+sudo /usr/local/bin/noip2 -S
+
+cd /home/pi/SkyHD
+
 echo ""
 python3 GetSkyIP.py
 
