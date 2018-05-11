@@ -37,4 +37,4 @@ sudo make
 sudo make install
 sudo /usr/local/bin/noip2 -C
 sudo /usr/local/bin/noip2
-
+sudo /usr/local/bin/noip2 -S
