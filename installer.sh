@@ -88,10 +88,10 @@ python3 GetSkyIP.py
 echo ""
 echo "This is the end of the installation script."
 echo ""
-echo "*********************************************************************************"
+echo "*******************************************************************************"
 echo "To make your Raspberry Pi automatically start the SkyHD service after boot-up"
 echo "please see the README file in the SkyHD folder. "
-echo "*********************************************************************************"
+echo "*******************************************************************************"
 
 echo ""
 echo "The SkyHD service is now running....."
