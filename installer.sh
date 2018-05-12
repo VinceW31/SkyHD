@@ -45,7 +45,8 @@ cd /home/pi/SkyHD
 echo ""
 echo "Installing Broadlink BlackBean requirements.....(approx 5 mins)"
 echo ""
-pip3 install -r blackbean_requirements.txt
+#pip3 install -r blackbean_requirements.txt
+pip install -r blackbean_requirements.txt
 
 python path.py
 
