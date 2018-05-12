@@ -73,7 +73,9 @@ About 10 seconds later, at the second white light, press the MUTE button, at the
 
 If you want, you can always try again or go back and add a BlackBean RM3 device at a later date by just running the Setup_RM3.py script again.
 
-Finally, the script will ask you for your SkyHD box IP address, this can be found from your Sky Box Network settings menu, this must be entered in the correct format (eg 192.168.xxx.xxx)
+Next, the installation script will setup the "noip" Dynamic Update Client (DUC) software for you.  Their installation software will ask you for your noip.com username & password, then you will be asked for an update interval, I suggest 30 (mins), then just answer N for the final question. If you decide to use another service other than "noip" then you can just skip this part by pressing Enter on the keyboard when asked for username and password.
+
+Finally, the main installation script will ask you for your SkyHD box IP address, this can be found from your Sky Box Network settings menu, this must be entered in the correct format (eg 192.168.xxx.xxx)
 
 Once this is done your system should be up and running on your Raspberry Pi and listening for commands from IFTTT.
 
