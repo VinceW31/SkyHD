@@ -32,30 +32,25 @@ echo ""
 sudo apt-get update -y
 
 echo ""
-echo "Installing nodejs npm.......(approx 5 mins)"
+echo "Installing nodejs npm.......approx 5 mins"
 echo ""
 sudo apt-get install nodejs npm node-semver -y
 
 echo ""
-echo "Installing sky-remote-cli....."
+echo "Installing sky-remote-cli.....approx 1 min"
 echo ""
 sudo npm install -g sky-remote-cli -y
 
 cd /home/pi/SkyHD
 echo ""
-echo "Installing Broadlink BlackBean requirements.....(approx 5 mins)"
+echo "Installing BlackBean requirements (python2.7).....approx 5 mins"
 echo ""
 #pip3 install -r blackbean_requirements.txt
 pip install -r blackbean_requirements.txt
-
 python path.py
-
-#echo ""
-#python3 GetSkyIP.py
 
 echo ""
 echo "Detecting and setting up BlackBean RM3....."
-
 echo ""
 python3 setup_RM3.py
 
