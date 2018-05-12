@@ -77,7 +77,7 @@ Finally, the script will ask you for your SkyHD box IP address, this can be foun
 
 Once this is done your system should be up and running on your Raspberry Pi and listening for commands from IFTTT.
 
-## Auto Start on Reboot
+### Auto Start on Reboot
 To make this program Auto-start on Raspberry Pi Boot up or Reboot then all you need to do is the following:
 
 Type the next line in a new terminal window:
