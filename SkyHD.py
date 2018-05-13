@@ -198,7 +198,7 @@ def data_input(phrase):
         if "alibi" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.alibi)
             
-        if "f1" in phrase or "f 1" in phrase or "f one" in phrase or "Formula 1" in phrase: 
+        if "f1" in phrase or "f 1" in phrase or "f one" in phrase or "formula 1" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.f1)
 
         if "atlantic" in phrase: 
