@@ -43,7 +43,7 @@ sudo npm install -g sky-remote-cli -y
 
 cd /home/pi/SkyHD
 echo ""
-echo "Installing BlackBean requirements (python2.7).....approx 5 mins"
+echo "Installing BlackBean requirements.....approx 5 mins"
 echo ""
 pip3 install -r blackbean_requirements.txt
 #pip install -r blackbean_requirements.txt
@@ -67,6 +67,7 @@ echo "and Password prompts."
 
 #sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /usr/local/src
 #sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /home/pi/SkyHD
+
 sudo cp -R /home/pi/SkyHD/noip-duc-linux.tar.gz /usr/local/src
 cd /usr/local/src
 sudo tar xzf noip-duc-linux.tar.gz
