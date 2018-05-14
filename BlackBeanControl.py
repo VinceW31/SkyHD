@@ -5,7 +5,7 @@ import broadlink
 import configparser #Python 3
 import sys, getopt
 import time, binascii
-import netaddr
+#import netaddr
 import BlackBeanSettings
 import re
 from os import path
