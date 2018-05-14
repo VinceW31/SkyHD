@@ -37,6 +37,12 @@ if reply == "y":
         f.write('\n'.join(data))
     print("BlackBean RM3 found and details stored sucessfully in BlackBeanControl.ini file")
 
+    # Write settings to RM3settings.py file
+    data = ["[General]","RM3_IPAddress = " + ipadd,"RM3_Port = " + port,"RM3_MACAddress = " + macadd,"RM3_Timeout = 5","[Commands]"]
+    with open("RM3settings.py", "w") as f:
+        f.write('\n'.join(data))
+    print("BlackBean RM3 found and details stored sucessfully in RM3settings.py file")
+
     # Learn IR commands
     print("\n")
     print("Now its time to Learn the IR commands for your TV")
@@ -60,13 +66,21 @@ if reply == "y":
     time.sleep(1)
     print("\n","Waiting for TV POWER button to be pressed on the SKY Remote")
     time.sleep(20)
-    os.system ("python BlackBeanControl.py -c power")
+    #os.system ("python BlackBeanControl.py -c power")
+    #print("\n","Waiting for MUTE button to be pressed")
+    #os.system ("python BlackBeanControl.py -c mute")
+    #print("\n","Waiting for VOL UP button to be pressed")
+    #os.system ("python BlackBeanControl.py -c volup")
+    #print("\n","Waiting for VOL DOWN button to be pressed")
+    #os.system ("python BlackBeanControl.py -c voldown")
+      
+    os.system ("python3 RM3control.py -c power")
     print("\n","Waiting for MUTE button to be pressed")
-    os.system ("python BlackBeanControl.py -c mute")
+    os.system ("python3 RM3control.py -c mute")
     print("\n","Waiting for VOL UP button to be pressed")
-    os.system ("python BlackBeanControl.py -c volup")
+    os.system ("python3 RM3control.py -c volup")
     print("\n","Waiting for VOL DOWN button to be pressed")
-    os.system ("python BlackBeanControl.py -c voldown")
+    os.system ("python3 RM3control.py -c voldown")
 else:
     print("OK, proceeding without setting up BlackBean RM3 device. ")
     print("\n")
