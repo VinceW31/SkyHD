@@ -47,9 +47,9 @@ echo "Installing BlackBean requirements.....approx 5 mins"
 echo ""
 #pip3 install -r blackbean_requirements.txt
 #pip install -r blackbean_requirements.txt
-pip3 install -r configparser
-#pip3 install -r netaddr==0.7.19
-pip3 install -r pycryptodome
+pip3 install configparser
+#pip3 install netaddr
+pip3 install pycryptodome
 
 
 
