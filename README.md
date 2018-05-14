@@ -61,7 +61,7 @@ sudo chmod +x /home/pi/SkyHD/installer.sh
 sudo /home/pi/SkyHD/installer.sh
 ```
 
-The installation script will now install everything for you over the next 10 to 15 min. 
+The installation script will now switch the default Python version to Python3 and install everything for you over the next 10 to 15 min. 
 
 The script will ask you if you want to install the optional BlackBean RM3 device, this  will allow you to control your TV IR commands like TV Power On/Off, Mute, Volume Up and Volume down.  If you select NO then it will skip this section, if you choose YES then it will continue and try to detect the BlackBean RM3 assuming its already active on your WiFi network. You MUST have already setup your BlackBean RM3 beforehand to be visible on your own WiFi network by following its own instructions.
 
