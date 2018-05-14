@@ -41,12 +41,14 @@ echo "Installing sky-remote-cli.....approx 1 min"
 echo ""
 sudo npm install -g sky-remote-cli -y
 
-cd /home/pi/SkyHD
+#cd /home/pi/SkyHD
 echo ""
 echo "Installing BlackBean requirements.....approx 5 mins"
 echo ""
 pip3 install -r blackbean_requirements.txt
 #pip install -r blackbean_requirements.txt
+
+cd /home/pi/SkyHD
 python3 path.py
 
 echo ""
