@@ -32,6 +32,14 @@ echo ""
 sudo apt-get update -y
 
 echo ""
+echo "Change default to Python3.5"
+echo ""
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python 2.7 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python 3.5 2
+echo "Default Python is now:"
+python --version
+
+echo ""
 echo "Installing nodejs npm.......approx 5 mins"
 echo ""
 sudo apt-get install nodejs npm node-semver -y
