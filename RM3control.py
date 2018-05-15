@@ -220,7 +220,7 @@ def execute_command(
             print(Encoded_power_Command)
 
             if Encoded_power_Command:
-                File = open('RM3settings.py'), 'w')
+                File = open('RM3settings.py', 'w')
                 File.append("power = ", Encoded_power_Command)
                 #SettingsFile.set('Commands', SentCommand, EncodedCommand)
                 #SettingsFile.write(BlackBeanControlIniFile)
@@ -244,7 +244,7 @@ def execute_command(
             print(Encoded_mute_Command)
 
             if Encoded_mute_Command:
-                File = open('RM3settings.py'), 'w')
+                File = open('RM3settings.py', 'w')
                 File.append("mute = ", Encoded_mute_Command)
                 #SettingsFile.set('Commands', SentCommand, EncodedCommand)
                 #SettingsFile.write(BlackBeanControlIniFile)
@@ -268,7 +268,7 @@ def execute_command(
             print(Encoded_volup_Command)
 
             if Encoded_volup_Command:
-                File = open('RM3settings.py'), 'w')
+                File = open('RM3settings.py', 'w')
                 File.append("volup = ", Encoded_volup_Command)
                 #SettingsFile.set('Commands', SentCommand, EncodedCommand)
                 #SettingsFile.write(BlackBeanControlIniFile)
@@ -292,7 +292,7 @@ def execute_command(
             print(Encoded_voldown_Command)
 
             if Encoded_voldown_Command:
-                File = open('RM3settings.py'), 'w')
+                File = open('RM3settings.py', 'w')
                 File.append("voldown = ", Encoded_voldown_Command)
                 #SettingsFile.set('Commands', SentCommand, EncodedCommand)
                 #SettingsFile.write(BlackBeanControlIniFile)
