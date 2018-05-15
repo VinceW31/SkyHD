@@ -62,12 +62,12 @@ pip3 install pycryptodome
 
 
 cd /home/pi/SkyHD
-python3 path.py
+python path.py
 
 echo ""
 echo "Detecting and setting up BlackBean RM3....."
 echo ""
-python3 setup_RM3.py
+python setup_RM3.py
 
 # setup noip DUC
 echo ""
