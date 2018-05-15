@@ -31,13 +31,13 @@ echo "Installing Raspbian updates....."
 echo ""
 sudo apt-get update -y
 
-echo ""
-echo "Change default to Python3.5"
-echo ""
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 2
-echo "Default Python is now:"
-python --version
+#echo ""
+#echo "Change default to Python3.5"
+#echo ""
+#sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+#sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 2
+#echo "Default Python is now:"
+#python --version
 
 echo ""
 echo "Installing nodejs npm.......approx 5 mins"
