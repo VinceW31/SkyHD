@@ -59,8 +59,8 @@ echo ""
 #pip3 install netaddr
 pip install ConfigParser
 pip install netaddr
-pip3 install pycryptodome
-
+pip install pycryptodome
+#pip3 install pycryptodome
 
 
 cd /home/pi/SkyHD
