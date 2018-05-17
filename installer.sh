@@ -58,6 +58,7 @@ echo ""
 #pip3 install configparser
 #pip3 install netaddr
 pip install ConfigParser
+pip install netaddr
 pip3 install pycryptodome
 
 
