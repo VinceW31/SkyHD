@@ -3,6 +3,8 @@ import time
 import skybox_ip
 import SkyChannelList
 import requests
+import urllib.request
+
 from flask import Flask, redirect, request, url_for
 
 IP = (str(skybox_ip.ip1) + "." + str(skybox_ip.ip2) + "." + str(skybox_ip.ip3) + "." + str(skybox_ip.ip4))
@@ -116,9 +118,9 @@ def data_input(phrase):
     if "switchdevice" in phrase:
         if "lamp" in phrase:
             if "on" in phrase:
-                r = requests.get('192.168.1.118/control?cmd=gpio,12,1')
+                r = requests.head('http://192.168.1.95/control?cmd=gpio,12,1')
             elif "off" in phrase:
-                r = requests.get('192.168.1.118/control?cmd=gpio,12,0')
+                r = requests.head('http://192.168.1.95/control?cmd=gpio,12,0')
     
 # TV control (IR Functions, if BlackBean RM3 is used)
     if "tvir" in phrase:
