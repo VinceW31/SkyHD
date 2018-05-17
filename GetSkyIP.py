@@ -12,7 +12,7 @@ def check_valid():
       error_message()
 
 def error_message():
-   check_reply = input ("Invalid format, do you want to try again? (Y/N) ")
+   check_reply = raw_input ("Invalid format, do you want to try again? (Y/N) ")
    if check_reply == "y":
       retry()
    else:
@@ -21,7 +21,7 @@ def error_message():
          
 def get_input():
    global sky
-   sky = input ("Please enter your SkyHD Box IP address (format 192.168.xxx.xxx): ")
+   sky = raw_input("Please enter your SkyHD Box IP address (format 192.168.xxx.xxx): ")
 
 def ip_split(): 
    global sky
