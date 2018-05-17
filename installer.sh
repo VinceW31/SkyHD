@@ -54,12 +54,12 @@ echo ""
 echo "Installing BlackBean requirements.....approx 5 mins"
 echo ""
 #pip3 install -r blackbean_requirements.txt
-#pip install -r blackbean_requirements.txt
+pip install -r blackbean_requirements.txt
 #pip3 install configparser
 #pip3 install netaddr
-pip install ConfigParser
-pip install netaddr
-pip install pycryptodome
+#pip install ConfigParser
+#pip install netaddr
+#pip install pycryptodome
 #pip3 install pycryptodome
 
 
