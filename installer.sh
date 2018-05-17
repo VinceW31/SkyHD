@@ -97,7 +97,7 @@ sudo /usr/local/bin/noip2
 cd /home/pi/SkyHD
 
 echo ""
-python3 GetSkyIP.py
+python GetSkyIP.py
 
 echo ""
 echo "This is the end of the installation script."
@@ -110,4 +110,4 @@ echo "**************************************************************************
 echo ""
 echo "The SkyHD service is now running....."
 echo ""
-python3 SkyHD.py
+python SkyHD.py
