@@ -1,4 +1,5 @@
-import configparser
+import ConfigParser
+#import configparser
 from os import path
 
 ApplicationDir = path.dirname(path.abspath(__file__))
