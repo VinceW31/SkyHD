@@ -62,7 +62,7 @@ if reply == "y":
     print("So, the button sequence is: TV POWER, MUTE, VOL UP, VOL DOWN.")
     print("\n")
 
-    anykey = input("Press Enter on keyboard when you are ready to proceed  ")
+    anykey = raw_input("Press Enter on keyboard when you are ready to proceed  ")
     time.sleep(1)
     print("\n","Waiting for TV POWER button to be pressed on the SKY Remote")
     time.sleep(20)
