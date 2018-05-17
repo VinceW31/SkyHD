@@ -13,7 +13,7 @@ print("If you decide to install the RM3 now then make sure its powered ")
 print("and is correctly set up first through its own App so its visible ")
 print("on your Wifi network (see the BlackBean instructions).")
 print("\n")
-reply = input("Do you want to setup a BlackBean RM3 IR device now? Y/N ")
+reply = raw_input("Do you want to setup a BlackBean RM3 IR device now? Y/N ")
       
 if reply == "y":
     print("\n")
