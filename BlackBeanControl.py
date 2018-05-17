@@ -11,8 +11,8 @@ import re
 from os import path
 from Crypto.Cipher import AES
 
-#SettingsFile = ConfigParser.ConfigParser()
-SettingsFile = configparser.ConfigParser() #Python3
+SettingsFile = ConfigParser.ConfigParser()
+#SettingsFile = configparser.ConfigParser() #Python3
 SettingsFile.optionxform = str
 SettingsFile.read(BlackBeanSettings.BlackBeanControlSettings)
 
