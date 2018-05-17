@@ -2,7 +2,7 @@
 
 import broadlink
 import ConfigParser
-import configparser 
+#import configparser 
 import sys, getopt
 import time, binascii
 import netaddr
