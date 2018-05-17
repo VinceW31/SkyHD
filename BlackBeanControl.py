@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-import broadlink
-import ConfigParser
+import broadlink configparser
+#import ConfigParser
 #import configparser 
 import sys, getopt
 import time, binascii
