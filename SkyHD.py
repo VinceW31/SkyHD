@@ -17,8 +17,8 @@ except:
 Vol_Range = 1
 delay = 0.5000
 http = urllib3.PoolManager()
-lamp_ON = 
-
+lamp_ON = 'http://192.168.1.95/control?cmd=gpio,12,1'
+lamp_OFF = 'http://192.168.1.95/control?cmd=gpio,12,0'
 
 app = Flask(__name__)
 
@@ -120,9 +120,26 @@ def data_input(phrase):
     if "switchdevice" in phrase:
         if "lamp" in phrase:
             if "on" in phrase:
-                r = requests.head('http://192.168.1.95/control?cmd=gpio,12,1')
+                try:
+                    r = http.request('GET', lamp_ON)
+                    r.status
+                    if r.status == 200:
+                        print(lamp_ON)
+                        print("Lamp is ON")
+                except:
+                    print("Failed to establish connection")
+                    
             elif "off" in phrase:
-                r = requests.head('http://192.168.1.95/control?cmd=gpio,12,0')
+                try:
+                    r = http.request('GET', lamp_OFF)
+                    r.status
+                    if r.status == 200:
+                        print(lamp_OFF)
+                        print("Lamp is OFF")
+                except:
+                    print("Failed to establish connection")
+
+                  
     
 # TV control (IR Functions, if BlackBean RM3 is used)
     if "tvir" in phrase:
