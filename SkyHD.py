@@ -3,8 +3,7 @@ import time
 import skybox_ip
 import SkyChannelList
 import requests
-import urllib.request
-
+import urllib3
 from flask import Flask, redirect, request, url_for
 
 IP = (str(skybox_ip.ip1) + "." + str(skybox_ip.ip2) + "." + str(skybox_ip.ip3) + "." + str(skybox_ip.ip4))
@@ -17,6 +16,9 @@ except:
     
 Vol_Range = 1
 delay = 0.5000
+http = urllib3.PoolManager()
+lamp_ON = 
+
 
 app = Flask(__name__)
 
