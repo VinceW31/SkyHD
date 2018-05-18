@@ -1,9 +1,11 @@
 #!/usr/bin/python
 
-import broadlink, configparser
+import broadlink
+import ConfigParser
 import sys, getopt
 import time, binascii
-import netaddr
+#import netaddr
+from netaddr import EUI
 import Settings
 import re
 from os import path
