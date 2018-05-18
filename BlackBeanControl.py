@@ -4,8 +4,8 @@ import broadlink
 import ConfigParser
 import sys, getopt
 import time, binascii
-#import netaddr
-from netaddr import EUI
+import netaddr
+#from netaddr import EUI
 import BlackBeanSettings
 import re
 from os import path
