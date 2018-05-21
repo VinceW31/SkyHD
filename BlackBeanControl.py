@@ -13,7 +13,7 @@ from os import path
 from Crypto.Cipher import AES
 
 #SettingsFile = ConfigParser.ConfigParser()
-SettingsFile = confipParser.ConfigParser()
+SettingsFile = configparser.ConfigParser()
 SettingsFile.optionxform = str
 SettingsFile.read(BlackBeanSettings.BlackBeanControlSettings)
 
