@@ -137,46 +137,30 @@ def data_input(phrase):
                         print(lamp_OFF)
                         print("Lamp is OFF")
                 except:
-                    print("Failed to establish connection")
-
-                  
+                    print("Failed to establish connection")                  
     
 # TV control (IR Functions, if BlackBean RM3 is used)
     if "tvir" in phrase:
         if " mute" in phrase or " unmute" in phrase:
-            os.system ("python3 RM3control.py -c mute")
+            #os.system ("python3 RM3control.py -c mute")
+            os.system ("python3 BlackBeanControl.py -c mute")
 
         elif " on" in phrase or " off" in phrase:
-            os.system ("python3 RM3control.py -c power" )
+           # os.system ("python3 RM3control.py -c power" )
+            os.system ("python3 BlackBeanControl.py -c power" )
 
         elif " up" in phrase:
             for i in range (Vol_Range):
-                os.system ("python3 RM3control.py -c volup")
+                #os.system ("python3 RM3control.py -c volup")
+                os.system ("python3 BlackBeanControl.py -c volup")
                 time.sleep(.500)
 
         elif " down" in phrase:
             for i in range (Vol_Range):
-                os.system ("python3 RM3control.py -c voldown")
+                #os.system ("python3 RM3control.py -c voldown")
+                os.system ("python3 BlackBeanControl.py -c voldown")
                 time.sleep(.500)
-
-##    if "tvir" in phrase:
-##        if " mute" in phrase or " unmute" in phrase:
-##            os.system ("python3 BlackBeanControl.py -c mute")
-##
-##        elif " on" in phrase or " off" in phrase:
-##            os.system ("python3 BlackBeanControl.py -c power" )
-##
-##        elif " up" in phrase:
-##           for i in range (Vol_Range):
-##                os.system ("python3 BlackBeanControl.py -c volup")
-##                time.sleep(.500)
-##
-##        elif " down" in phrase:
-##            for i in range (Vol_Range):
-##                os.system ("python3 BlackBeanControl.py -c voldown")
-##                time.sleep(.500)
-##
-    
+  
 # menus (show, go to, whats on, ip/menus "text")
 
     if "menus" in phrase:
