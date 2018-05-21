@@ -64,7 +64,7 @@ pip install pycryptodome
 
 
 cd /home/pi/SkyHD
-#python path.py
+python path.py
 
 echo ""
 echo "Detecting and setting up BlackBean RM3....."
