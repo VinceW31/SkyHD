@@ -38,10 +38,10 @@ if reply == "y":
     print("BlackBean RM3 found and details stored sucessfully in BlackBeanControl.ini file")
 
     # Write settings to RM3settings.py file
-    data = ["[General]","RM3_IPAddress = " + ipadd,"RM3_Port = " + port,"RM3_MACAddress = " + macadd,"RM3_Timeout = 5","[Commands]"]
-    with open("RM3settings.py", "w") as f:
-        f.write('\n'.join(data))
-    print("BlackBean RM3 found and details stored sucessfully in RM3settings.py file")
+    #data = ["[General]","RM3_IPAddress = " + ipadd,"RM3_Port = " + port,"RM3_MACAddress = " + macadd,"RM3_Timeout = 5","[Commands]"]
+    #with open("RM3settings.py", "w") as f:
+        #f.write('\n'.join(data))
+    #print("BlackBean RM3 found and details stored sucessfully in RM3settings.py file")
 
     # Learn IR commands
     print("\n")
