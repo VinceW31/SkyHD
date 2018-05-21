@@ -1,11 +1,12 @@
-import ConfigParser
+#import ConfigParser
+import configparser
 from os import path
 
 ApplicationDir = path.dirname(path.abspath(__file__))
 BlackBeanControlSettings = path.join(ApplicationDir, 'BlackBeanControl.ini')
 
-Settings = ConfigParser.ConfigParser()
-#Settings = configparser.ConfigParser()
+#Settings = ConfigParser.ConfigParser()
+Settings = configparser.ConfigParser()
 Settings.read(BlackBeanControlSettings)
 
 IPAddress = Settings.get('General', 'IPAddress')
