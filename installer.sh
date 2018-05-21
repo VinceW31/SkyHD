@@ -57,7 +57,7 @@ echo ""
 #pip install -r blackbean_requirements.txt
 #pip3 install configparser
 #pip3 install netaddr
-pip install ConfigParser
+pip install configparser
 pip install netaddr
 pip install pycryptodome
 #pip3 install pycryptodome
