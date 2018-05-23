@@ -30,6 +30,8 @@ echo ""
 #sudo apt-get update -y && apt-get upgrade -y
 sudo apt-get update #-y && apt-get upgrade -y
 
+pip install --upgrade pip==9.0.3
+
 echo ""
 echo "Installing netaddr"
 echo ""
@@ -40,7 +42,7 @@ echo ""
 echo "Installing configparser"
 echo ""
 #pip install configparser
-pip install --install-option="--prefix=/home/pi/SkyHD" netaddr
+pip install --install-option="--prefix=/home/pi/SkyHD" configparser
 
 echo ""
 echo "Installing pycryptodome"
