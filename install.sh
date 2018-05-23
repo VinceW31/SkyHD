@@ -27,22 +27,25 @@ cd /home/pi/
 echo ""
 echo "Installing Raspbian updates....."
 echo ""
-sudo apt-get update -y
+sudo apt-get update -y && apt-get upgrade -y
 
 echo ""
 echo "Installing netaddr"
 echo ""
-pip install netaddr
+#pip install netaddr
+pip install --install-option="--prefix=/home/pi/SkyHD" netaddr
 
 echo ""
 echo "Installing configparser"
 echo ""
-pip install configparser
+#pip install configparser
+pip install --install-option="--prefix=/home/pi/SkyHD" netaddr
 
 echo ""
 echo "Installing pycryptodome"
 echo ""
-pip install pycryptodome
+#pip install pycryptodome
+pip install --install-option="--prefix=/home/pi/SkyHD" pycryptodome
 
 
 #echo ""
@@ -69,6 +72,8 @@ sudo npm install -g sky-remote-cli -y
 #echo ""
 #pip3 install -r blackbean_requirements.txt
 #pip install -r blackbean_requirements.txt
+#pip install --install-option="--prefix=$PREFIX_PATH" package_name
+#pip install --install-option="--prefix=/home/pi/SkyHD" blackbean_requirements.txt
 #pip3 install configparser
 #pip3 install netaddr
 
