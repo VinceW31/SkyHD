@@ -25,3 +25,9 @@ pi@raspberrypi:~/SkyHD $ update-alternatives --list python
 /usr/bin/python3.5
 pi@raspberrypi:~/SkyHD $ update-alternatives --config python
 There are 2 choices for the alternative python (providing /usr/bin/python).
+
+
+pip show netaddr
+pip show configparser
+python -c 'import sys; print(sys.path);'
+python -c 'import sys; sys.path.append("../"); print(sys.path);'
