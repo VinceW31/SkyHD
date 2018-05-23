@@ -31,3 +31,24 @@ pip show netaddr
 pip show configparser
 python -c 'import sys; print(sys.path);'
 python -c 'import sys; sys.path.append("../"); print(sys.path);'
+
+
+Name: netaddr
+Version: 0.7.19
+Summary: A network address manipulation library for Python
+Home-page: https://github.com/drkjam/netaddr/
+Author: Stefan Nordhausen
+Author-email: stefan.nordhausen@immobilienscout24.de
+License: BSD License
+Location: /home/pi/.local/lib/python2.7/site-packages
+Requires: 
+Name: configparser
+Version: 3.5.0
+Summary: This library brings the updated configparser from Python 3.5 to Python 2.6-3.5.
+Home-page: http://docs.python.org/3/library/configparser.html
+Author: Lukasz Langa
+Author-email: lukasz@langa.pl
+License: MIT
+Location: /home/pi/.local/lib/python2.7/site-packages
+Requires: 
+['', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-arm-linux-gnueabihf', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/home/pi/.local/lib/python2.7/site-packages', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/gtk-2.0']
