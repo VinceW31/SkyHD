@@ -123,6 +123,6 @@ echo "please see the README file in the SkyHD folder. "
 echo "*******************************************************************************"
 
 echo ""
-echo "The SkyHD service is now running....."
+echo "The SkyHD service will now start....."
 echo ""
 python SkyHD.py
