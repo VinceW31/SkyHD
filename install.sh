@@ -36,19 +36,19 @@ echo ""
 echo "Installing netaddr"
 echo ""
 #pip install netaddr
-pip install --install-option="--prefix=/home/pi/SkyHD" netaddr
+pip install --target=home/pi/SkyHD netaddr
 
 echo ""
 echo "Installing configparser"
 echo ""
 #pip install configparser
-pip install --install-option="--prefix=/home/pi/SkyHD" configparser
+pip install --target=home/pi/SkyHD configparser
 
 echo ""
 echo "Installing pycryptodome"
 echo ""
 #pip install pycryptodome
-pip install --install-option="--prefix=/home/pi/SkyHD" pycryptodome
+pip install --target=home/pi/SkyHD pycryptodome
 
 
 #echo ""
