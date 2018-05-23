@@ -27,7 +27,8 @@ cd /home/pi/
 echo ""
 echo "Installing Raspbian updates....."
 echo ""
-sudo apt-get update -y && apt-get upgrade -y
+#sudo apt-get update -y && apt-get upgrade -y
+sudo apt-get update #-y && apt-get upgrade -y
 
 echo ""
 echo "Installing netaddr"
