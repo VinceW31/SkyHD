@@ -27,8 +27,8 @@ cd /home/pi/
 echo ""
 echo "Installing Raspbian updates....."
 echo ""
-#sudo apt-get update -y && apt-get upgrade -y
-sudo apt-get update #-y && apt-get upgrade -y
+sudo apt-get update 
+#sudo apt-get upgrade
 
 pip install --upgrade pip==9.0.3
 
