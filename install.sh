@@ -121,13 +121,14 @@ echo "**************************************************************************
 echo "To make your Raspberry Pi automatically start the SkyHD service after boot-up"
 echo "please see the README file in the SkyHD folder. "
 echo "*******************************************************************************"
-
+echo ""
+pip show netaddr
+pip show configparser
+python -c 'import sys; print(sys.path);'
+#python -c 'import sys; sys.path.append("../"); print(sys.path);'
 echo ""
 echo "The SkyHD service will now start....."
 echo ""
 python SkyHD.py
 
-pip show netaddr
-pip show configparser
-python -c 'import sys; print(sys.path);'
-#python -c 'import sys; sys.path.append("../"); print(sys.path);'
+
