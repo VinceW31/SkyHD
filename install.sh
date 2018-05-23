@@ -126,3 +126,8 @@ echo ""
 echo "The SkyHD service will now start....."
 echo ""
 python SkyHD.py
+
+pip show netaddr
+pip show configparser
+python -c 'import sys; print(sys.path);'
+#python -c 'import sys; sys.path.append("../"); print(sys.path);'
