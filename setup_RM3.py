@@ -8,16 +8,13 @@ import binascii
 print("You can now setup the Optional BlackBean RM3 IR device, ")
 print("or you can choose to do it at a later time or date ")
 print("by running the setup_RM3.py script in the SkyHD folder.")
-print("\n")
 print("If you decide to install the RM3 now then make sure its powered ")
 print("and is correctly set up first through its own App so its visible ")
 print("on your Wifi network (see the BlackBean instructions).")
-print("\n")
+
+# Search for RM3?
 reply = raw_input("Do you want to setup a BlackBean RM3 IR device now? Y/N ")
-      
 if reply == "y":
-    print("\n")
-    # Search for RM3
     print('Scanning network for Broadlink devices (5s timeout) ... ')
     devices = broadlink.discover(timeout=5)
     print(('Found ' + str(len(devices )) + ' broadlink device(s)'))
@@ -31,23 +28,21 @@ if reply == "y":
     macadd = macadd[:2] + ":" + macadd[2:4] + ":" + macadd[4:6] + ":" + macadd[6:8] + ":" + macadd[8:10] + ":" + macadd[10:12]
     print(('Device ' + str(index + 1) +':\nIPAddress = ' + ipadd + '\nPort = ' + port + '\nMACAddress = ' + macadd))
 
-    # Write settings to BlackBeanControl.ini file
+# Write settings to BlackBeanControl.ini file
     data = ["[General]","IPAddress = " + ipadd,"Port = " + port,"MACAddress = " + macadd,"Timeout = 5","[Commands]"]
     with open("BlackBeanControl.ini", "w") as f:
         f.write('\n'.join(data))
     print("BlackBean RM3 found and details stored sucessfully in BlackBeanControl.ini file")
 
-    # Write settings to RM3settings.py file
+# Write settings to RM3settings.py file
     #data = ["[General]","RM3_IPAddress = " + ipadd,"RM3_Port = " + port,"RM3_MACAddress = " + macadd,"RM3_Timeout = 5","[Commands]"]
     #with open("RM3settings.py", "w") as f:
         #f.write('\n'.join(data))
     #print("BlackBean RM3 found and details stored sucessfully in RM3settings.py file")
-    print("\n")
+
+# Learn IR commands?
     reply2 = raw_input("Do you want to teach the BlackBean your TV IR codes now? Y/N ")
     if reply2 == "y":
-            
-      # Learn IR commands
-      print("\n")
       print("You must point your TV Remote towards the top of the BlackBean RM3 and ")
       print("press the appropriate button to allow it to learn each command in turn.")
       print("Once you press the Enter key the script will wait 30 sec for you to ")
