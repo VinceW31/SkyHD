@@ -95,8 +95,6 @@ echo ""
 echo "Insatlling No-IP DUC"
 sudo make
 sudo make install
-echo ""
-echo "Running No-IP DUC"
 sudo /usr/local/bin/noip2
 cd /home/pi/SkyHD
 python GetSkyIP.py
