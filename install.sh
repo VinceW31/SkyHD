@@ -30,22 +30,22 @@ echo ""
 sudo apt-get update 
 #sudo apt-get upgrade
 
-echo "Upgrading PIP to ver 9.0.3"
+echo "Upgrading PIP to ver 9.0.3.......(1 min)"
 pip install --upgrade pip==9.0.3
 
 echo ""
-echo "Installing netaddr......."
+echo "Installing netaddr.......(1 min)"
 echo ""
 pip install --target=/home/pi/SkyHD netaddr
 
 echo ""
-echo "Installing configparser......."
+echo "Installing configparser.......(1 min)"
 echo ""
 pip install --target=/home/pi/SkyHD configparser
 touch /home/pi/SkyHD/backports/__init__.py
 
 echo ""
-echo "Installing pycryptodome......."
+echo "Installing pycryptodome.......(5 min)"
 echo ""
 pip install --target=/home/pi/SkyHD pycryptodome
 
@@ -58,12 +58,12 @@ pip install --target=/home/pi/SkyHD pycryptodome
 #python --version
 
 echo ""
-echo "Installing nodejs npm......."
+echo "Installing nodejs npm.......(5 min)"
 echo ""
 sudo apt-get install nodejs npm node-semver -y
 
 echo ""
-echo "Installing sky-remote-cli......."
+echo "Installing sky-remote-cli.......(30 sec)"
 echo ""
 sudo npm install -g sky-remote-cli -y
 
