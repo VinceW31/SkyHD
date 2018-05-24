@@ -25,7 +25,7 @@ clear
 cd /home/pi/
 
 echo ""
-echo "Installing Raspbian updates....."
+echo "Collecting available Raspbian updates list....."
 echo ""
 sudo apt-get update 
 #sudo apt-get upgrade
@@ -33,25 +33,20 @@ sudo apt-get update
 pip install --upgrade pip==9.0.3
 
 echo ""
-echo "Installing netaddr"
+echo "Installing netaddr......."
 echo ""
-#pip install netaddr
 pip install --target=/home/pi/SkyHD netaddr
 
 echo ""
-echo "Installing configparser"
+echo "Installing configparser......."
 echo ""
-#pip install configparser
 pip install --target=/home/pi/SkyHD configparser
 touch /home/pi/SkyHD/backports/__init__.py
 
 echo ""
-echo "Installing pycryptodome"
+echo "Installing pycryptodome......."
 echo ""
-#pip install pycryptodome
 pip install --target=/home/pi/SkyHD pycryptodome
-
-
 
 #echo ""
 #echo "Change default to Python3.5"
@@ -62,35 +57,17 @@ pip install --target=/home/pi/SkyHD pycryptodome
 #python --version
 
 echo ""
-echo "Installing nodejs npm"
+echo "Installing nodejs npm......."
 echo ""
 sudo apt-get install nodejs npm node-semver -y
 
 echo ""
-echo "Installing sky-remote-cli"
+echo "Installing sky-remote-cli......."
 echo ""
 sudo npm install -g sky-remote-cli -y
 
-#cd /home/pi/SkyHD
-#echo ""
-#echo "Installing BlackBean requirements.....approx 5 mins"
-#echo ""
-#pip3 install -r blackbean_requirements.txt
-#pip install -r blackbean_requirements.txt
-#pip install --install-option="--prefix=$PREFIX_PATH" package_name
-#pip install --install-option="--prefix=/home/pi/SkyHD" blackbean_requirements.txt
-#pip3 install configparser
-#pip3 install netaddr
-
-#pip install configparser
-#pip install netaddr
-#pip install pycryptodome
-#pip3 install pycryptodome
-
-
 cd /home/pi/SkyHD
 mv SkyHD.desktop /home/pi/Desktop
-#python path.py
 
 echo ""
 echo "Detecting and setting up BlackBean RM3....."
@@ -108,9 +85,6 @@ echo ""
 echo "if you want to skip this step then just press Enter at the Username "
 echo "and Password prompts."
 
-#sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /usr/local/src
-#sudo cp -R /home/pi/Downloads/noip-duc-linux.tar.gz /home/pi/SkyHD
-
 sudo cp -R /home/pi/SkyHD/noip-duc-linux.tar.gz /usr/local/src
 cd /usr/local/src
 sudo tar xzf noip-duc-linux.tar.gz
@@ -121,10 +95,7 @@ sudo make
 sudo make install
 sudo /usr/local/bin/noip2
 cd /home/pi/SkyHD
-
-echo ""
 python GetSkyIP.py
-
 echo ""
 echo "This is the end of the installation script."
 echo ""
@@ -132,11 +103,6 @@ echo "**************************************************************************
 echo "To make your Raspberry Pi automatically start the SkyHD service after boot-up"
 echo "please see the README file in the SkyHD folder. "
 echo "*******************************************************************************"
-echo ""
-#pip show netaddr
-#pip show configparser
-#python -c 'import sys; print(sys.path);'
-#python -c 'import sys; sys.path.append("../"); print(sys.path);'
 echo ""
 echo "The SkyHD service will now start....."
 echo ""
