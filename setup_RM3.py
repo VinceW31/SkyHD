@@ -48,11 +48,8 @@ if reply == "y":
             
       # Learn IR commands
       print("\n")
-      print("Now its time to Learn the IR commands for your TV")
-      print("\n")
       print("You must point your TV Remote towards the top of the BlackBean RM3 and ")
       print("press the appropriate button to allow it to learn each command in turn.")
-      print("\n")
       print("Once you press the Enter key the script will wait 30 sec for you to ")
       print("get your TV/SKY remote ready next to the BlackBean RM3.")
       print("The WHITE light on the BlackBean RM3 will come on after the 30 sec is up, ")
