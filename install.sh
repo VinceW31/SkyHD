@@ -43,6 +43,7 @@ echo "Installing configparser"
 echo ""
 #pip install configparser
 pip install --target=/home/pi/SkyHD configparser
+touch /home/pi/SkyHD/backports/__init__.py
 
 echo ""
 echo "Installing pycryptodome"
@@ -50,7 +51,7 @@ echo ""
 #pip install pycryptodome
 pip install --target=/home/pi/SkyHD pycryptodome
 
-touch /home/pi/SkyHD/backports/__init__.py
+
 
 #echo ""
 #echo "Change default to Python3.5"
@@ -61,12 +62,12 @@ touch /home/pi/SkyHD/backports/__init__.py
 #python --version
 
 echo ""
-echo "Installing nodejs npm.......approx 5 mins"
+echo "Installing nodejs npm"
 echo ""
 sudo apt-get install nodejs npm node-semver -y
 
 echo ""
-echo "Installing sky-remote-cli.....approx 1 min"
+echo "Installing sky-remote-cli"
 echo ""
 sudo npm install -g sky-remote-cli -y
 
