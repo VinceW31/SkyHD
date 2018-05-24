@@ -25,7 +25,7 @@ clear
 cd /home/pi/
 
 echo ""
-echo "Collecting available Raspbian updates list....."
+echo "Collecting Raspbian updates list....."
 echo ""
 sudo apt-get update 
 #sudo apt-get upgrade
