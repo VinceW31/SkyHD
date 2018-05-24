@@ -50,6 +50,7 @@ echo ""
 #pip install pycryptodome
 pip install --target=/home/pi/SkyHD pycryptodome
 
+touch /home/pi/SkyHD/backports/__init__.py
 
 #echo ""
 #echo "Change default to Python3.5"
