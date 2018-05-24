@@ -46,7 +46,7 @@ pip install --target=/home/pi/SkyHD configparser
 touch /home/pi/SkyHD/backports/__init__.py
 
 echo ""
-echo "Installing pycryptodome.......(5 min)"
+echo "Installing pycryptodome.......(3 min)"
 echo ""
 pip install --target=/home/pi/SkyHD pycryptodome
 
@@ -59,7 +59,7 @@ pip install --target=/home/pi/SkyHD pycryptodome
 #python --version
 
 echo ""
-echo "Installing nodejs npm.......(5 min)"
+echo "Installing nodejs npm.......(2 min)"
 echo ""
 sudo apt-get install nodejs npm node-semver -y
 
