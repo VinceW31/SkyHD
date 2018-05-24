@@ -182,7 +182,7 @@ def execute_command(
                 FinalCommand = EncodedCommand[0x04:]
                 EncodedCommand = binascii.hexlify(FinalCommand).decode("ascii")
 
-                BlackBeanControlIniFile = open(path.join(Settings.ApplicationDir, 'BlackBeanControl.ini'), 'w')
+                BlackBeanControlIniFile = open(path.join(BlackBeanSettings.ApplicationDir, 'BlackBeanControl.ini'), 'w')
                 SettingsFile.set('Commands', SentCommand, EncodedCommand)
                 SettingsFile.write(BlackBeanControlIniFile)
                 BlackBeanControlIniFile.close()
