@@ -61,6 +61,7 @@ if reply == "y":
       print("\n")
 
       anykey = raw_input("Press Enter on keyboard when you are ready to proceed  ")
+      print("\n")
       time.sleep(1)
       print("Waiting for TV POWER button to be pressed on the SKY Remote")
       time.sleep(20)
