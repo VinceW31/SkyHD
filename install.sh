@@ -89,6 +89,7 @@ sudo npm install -g sky-remote-cli -y
 
 
 cd /home/pi/SkyHD
+mv SkyHD.desktop /home/pi/Desktop
 #python path.py
 
 echo ""
