@@ -1,12 +1,10 @@
 #!/usr/bin/python
 
 import broadlink
-#import ConfigParser
 import configparser
 import sys, getopt
 import time, binascii
 import netaddr
-#from netaddr import EUI
 import BlackBeanSettings
 import re
 from os import path
