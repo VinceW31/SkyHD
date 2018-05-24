@@ -11,10 +11,12 @@ print("by running the setup_RM3.py script in the SkyHD folder.")
 print("If you decide to install the RM3 now then make sure its powered ")
 print("and is correctly set up first through its own App so its visible ")
 print("on your Wifi network (see the BlackBean instructions).")
+print("\n")
 
 # Search for RM3?
 reply = raw_input("Do you want to setup a BlackBean RM3 IR device now? Y/N ")
 if reply == "y":
+    print("\n")
     print('Scanning network for Broadlink devices (5s timeout) ... ')
     devices = broadlink.discover(timeout=5)
     print(('Found ' + str(len(devices )) + ' broadlink device(s)'))
@@ -41,6 +43,7 @@ if reply == "y":
     #print("BlackBean RM3 found and details stored sucessfully in RM3settings.py file")
 
 # Learn IR commands?
+    print("\n")
     reply2 = raw_input("Do you want to teach the BlackBean your TV IR codes now? Y/N ")
     if reply2 == "y":
       print("You must point your TV Remote towards the top of the BlackBean RM3 and ")
