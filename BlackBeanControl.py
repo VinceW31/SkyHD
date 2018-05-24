@@ -5,7 +5,7 @@ import configparser
 import sys, getopt
 import time, binascii
 import netaddr
-#import BlackBeanSettings
+import BlackBeanSettings
 import re
 from os import path
 from Crypto.Cipher import AES
