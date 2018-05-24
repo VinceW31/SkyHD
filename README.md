@@ -55,10 +55,10 @@ Once you are at the Desktop on the Raspberry Pi, then open a terminal screen  by
 git clone https://github.com/VinceW31/SkyHD.git
 ```
 ```
-sudo chmod +x /home/pi/SkyHD/installer.sh
+sudo chmod +x /home/pi/SkyHD/install.sh
 ```
 ```
-sudo /home/pi/SkyHD/installer.sh
+sudo /home/pi/SkyHD/install.sh
 ```
 
 The installation script will now switch the default Python version to Python3 and install everything for you over the next 10 to 15 min. 
