@@ -30,6 +30,7 @@ echo ""
 sudo apt-get update 
 #sudo apt-get upgrade
 
+echo ""
 echo "Upgrading PIP to ver 9.0.3.......(1 min)"
 pip install --upgrade pip==9.0.3
 
