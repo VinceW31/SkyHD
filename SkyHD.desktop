@@ -1,1 +1,9 @@
+[Desktop Entry]
+Name=SkyHD
+Comment=nil
+Icon=/usr/share/pixmaps/openbox.xpm
+path=/home/pi/SkyHD/
+Exec=sudo python SkyHD.py
+Type=Application
+Categories=None;
 
