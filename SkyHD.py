@@ -1,5 +1,6 @@
 import os
 import time
+import datetime
 import skybox_ip
 import SkyChannelList
 import requests
@@ -13,7 +14,8 @@ try:
     os.system ("sudo /usr/local/bin/noip2")
 except:
     print("Unable to start No-ip DUC service")
-    
+
+now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
 Vol_Range = 1
 delay = 0.5000
 http = urllib3.PoolManager()
@@ -108,6 +110,11 @@ def find_character_code_sequence(char): #this is for the Search function
     elif char == "'":
         character_code_sequence = " 1 1 1 1 1"
     return character_code_sequence
+
+def log_channel(phrase, IP, channel):
+    with open("log.txt", "a") as f:
+        f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nCommand sent to SkyHD box: " + IP + " channel " + channel)
+        f.close()
 
 @app.route("/<phrase>", methods = ['POST', 'GET'])
        
@@ -213,60 +220,86 @@ def data_input(phrase):
         
         if "sky news" in phrase:
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.skynews)
+            log_channel(phrase,IP,SkyChannelList.skynews)
 
         if "discovery" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.discovery)
-
+            log_channel(phrase,IP,SkyChannelList.discovery)
+            
         if "gold" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.gold)
-
+            log_channel(phrase,IP,SkyChannelList.gold)
+            
         if "dave" in phrase: 
-             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.dave)
-
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.dave)
+            log_channel(phrase,IP,SkyChannelList.dave)
+            
         if "tlc" in phrase or "t l c" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.tlc)
-
+            log_channel(phrase,IP,SkyChannelList.tlc)
+            
         if "alibi" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.alibi)
+            log_channel(phrase,IP,SkyChannelList.alibi)
             
         if "f1" in phrase or "f 1" in phrase or "f one" in phrase or "formula 1" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.f1)
-
+            log_channel(phrase,IP,SkyChannelList.f1)
+            
         if "atlantic" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.atlantic)
-
+            log_channel(phrase,IP,SkyChannelList.atlantic)
+            
         if "universal" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.universal)
-
+            log_channel(phrase,IP,SkyChannelList.universal)
+            
         if "national geographic" in phrase or "nat geo" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.nat_geo)
-
+            log_channel(phrase,IP,SkyChannelList.nat_geo)
+            
         if "sky 1" in phrase or "sky one" in phrase: 
-                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.sky_1)          
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.sky_1)          
+            log_channel(phrase,IP,SkyChannelList.sky_1)
+            
+        if "channel 4" in phrase or "channel four" in phrase: 
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.ch_4)
+            log_channel(phrase,IP,SkyChannelList.ch_4)
 
-
+        if "channel 5" in phrase or "channel five" in phrase: 
+            os.system ("sky-remote-cli " + IP + " " + SkyChannelList.ch_5)
+            log_channel(phrase,IP,SkyChannelList.ch_5)
+            
         if "bbc" in phrase: 
             if "bbc 1" in phrase or "bbc one" in phrase: 
                 os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_1)
+                log_channel(phrase,IP,SkyChannelList.bbc_1)
             elif "bbc 2" in phrase or "bbc to" in phrase or "bbc too" in phrase or "bbc two" in phrase: 
                 os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_2)
+                log_channel(phrase,IP,SkyChannelList.bbc_2)
             elif "bbc 4" in phrase or "bbc four" in phrase:  
                 os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_4)
+                log_channel(phrase,IP,SkyChannelList.bbc_4)
             elif "bbc local" in phrase or "bbc bristol" in phrase or "bbc south west" in phrase or "bbc west" in phrase:
                 os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_local)
+                log_channel(phrase,IP,SkyChannelList.bbc_local)
             else:
                 os.system ("sky-remote-cli " + IP + " " + SkyChannelList.skynews)
+                log_channel(phrase,IP,SkyChannelList.skynews)
 
 
         if "itv" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.itv_1)
+            log_channel(phrase,IP,SkyChannelList.itv_1)
 
         if "channels to channel" in phrase or "channels channel to" in phrase:
             print("phrase is " + phrase)
             if "channel 4" in phrase or "channel four" in phrase: 
                 os.system ("sky-remote-cli " + IP + " " + SkyChannelList.ch_4)
+                log_channel(phrase,IP,SkyChannelList.ch_4)
             elif "channel 5" in phrase or "channel five" in phrase: 
                 os.system ("sky-remote-cli " + IP + " " + SkyChannelList.ch_5)
+                log_channel(phrase,IP,SkyChannelList.ch_5)
             else:
                 print("channel number detected in phrase?")
                 word_list = phrase.split()
@@ -289,8 +322,8 @@ def data_input(phrase):
                         channel_number = word_list[a] + " " + word_list[a+1] + " " + word_list[a+2]
                         print("Channel number modified to " + channel_number)
                 os.system ("sky-remote-cli " + IP + " sky"  + " " + channel_number)
+                log_channel(phrase,IP,channel_number)
                 print("Sending - sky," + channel_number)
-
 # play/pause etc (pause tv, pause programme, continue)
     if "pause" in phrase: 
         os.system ("sky-remote-cli " + IP + " pause")
