@@ -1,3 +1,0 @@
-configparser==3.5.0
-netaddr==0.7.19
-pycryptodome==3.4.7
