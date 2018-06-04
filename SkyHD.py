@@ -330,8 +330,8 @@ def data_input(phrase):
                 os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_local)
                 log_channel(phrase,IP,SkyChannelList.bbc_local)
             else:
-                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.skynews)
-                log_channel(phrase,IP,SkyChannelList.skynews)
+                os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_1)
+                log_channel(phrase,IP,SkyChannelList.bbc_1)
 
 
         if "itv" in phrase: 
