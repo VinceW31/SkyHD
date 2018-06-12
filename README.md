@@ -2,44 +2,33 @@ This Project has not been released yet, still work in progress!  However, commen
 
 # Summary
 
-This project is a fully documented (for basic user easy install) installation for controlling a UK SkyHD box with simple and friendly Voice Commands using Google Home/Mini/Assistant via a Raspberry Pi3 hosting this project software.  You can also add an optional Broadlink BlackBean RM3 IR device (for the IR commands), its supported too.  If you do not have the optional BlackBean RM3 device then dont worry, all of the SkyHD box functions will still work ok (they work over WiFi/Ethernet), you just will not have the functionality to control the IR commands (TV Power, Mute, Vol Up/Down) via Google Home/Mini/Assistant.
+This project is a fully documented (for basic user easy install) installation for controlling a UK SkyHD box with simple and friendly Voice Commands using Google Home/Mini/Assistant via a Raspberry Pi3 hosting this project software.  You can also add an optional Broadlink BlackBean RM3 IR device (for the IR commands), its supported too.  If you do not have the optional BlackBean RM3 device then dont worry, all of the SkyHD box functions will still work ok (they work over WiFi/Ethernet), you just will not have the functionality to control your TV IR commands (TV Power, Mute, Vol Up/Down) via Google Home/Mini/Assistant.
 
 The project contains all the steps and files necessary to complete the project from end to end, including the optional RM3 functionality.  In order to complete this project you will need the following: A Google Home/Mini device (or Google Assistant on your phone will do) and a Raspberry Pi with a Blank 8 Gb Micro SD card, and of course, a SkyHD Box.  If you want to control your TV power and audio functions (which are IR based) then you will also need the optional Broadlink BlackBean RM3.  
 
 # How does it work?
 
-The project uses the Google Home/Mini/Assistant to capture your voice commands, this converts your voice commands to text and then automatically sends them in a string directly to your IFTTT account (I'll show you how to set up a free account for this).  Your IFTTT then detects simple and friendly keyword triggers within the text it recieves and then sends commands back to your Raspberry Pi.  The Raspberry Pi then captures those commands, filters them through a series of logical steps and compiles commands into a SkyHD friendly format that can then be sent directly over your WiFi/Ethernet to your SkyHD box.  The Raspberry Pi will also detect and output the commands that need to be sent to your TV for contolling the Power and Audio functions via IR (through the optional BlackBean RM3) if you decide to include this capability. 
+The project uses the Google Home/Mini/Assistant to capture your voice commands, this converts your voice commands to text strings which  your IFTTT account (I'll show you how to set up a free account for this) can read.  IFTTT then detects simple and friendly keyword triggers within the text it recieves and then sends commands back to your Raspberry Pi.  The Raspberry Pi then captures those commands, filters them through a series of logical steps and compiles commands into a SkyHD friendly format that can then be sent directly over your WiFi/Ethernet to your SkyHD box.  The Raspberry Pi will also detect and output the commands that need to be sent to your TV for contolling the Power and Audio functions via IR (through the optional BlackBean RM3) if you decide to include this capability. 
 
 Right, lets get started!
 
-You will probaly need to set up Port Forwarding on your Router to allow the IFTTT commands to get through to your Raspberry Pi.  I'll show you how I did it on my own BT Hub Router, but you may need to look elsewhere for specific instructions if yours is not a BT Router.
+# Port Forwarding on your Router.
 
-You will also probably need to set up a free Dynamic IP addressing service as well, this will save you the trouble of always having to change your external IP address in IFTTT every couple of days/weeks.  Most ISPs have a Dynamic external IP address set up on your Router for security; that means to the outside world you internet address they can see is not static and it often changes.  I use a free service from NO-IP.com, but there are other free services out there too.  I'll show you how to set this up for a NO-IP.com free account.
+First you will probaly need to set up Port Forwarding on your Router to allow the IFTTT commands to get through to your Raspberry Pi.  I'll show you how I did it on my own BT Hub Router, but you may need to look elsewhere for specific instructions if yours is not a BT Router.
 
+# Manage your External IP address with No-IP.com.
 
+Next, you will also probably need to set up a free Dynamic IP addressing service as well, this will save you the trouble of always having to change your external IP address in IFTTT every couple of days/weeks.  Most ISPs have a Dynamic external IP address set up on your Router for security; that means to the outside world you internet address is not static, it changes quite often.  I use a free service from NO-IP.com, but there are other free services out there too.  The following procedure shows you how to set up a NO-IP.com free account.
 
-# No-IP.com
-
-Text here
-
-Our Dynamic Update Client runs on your computer and checks frequently for an IP address change. When a different IP address is detected, the DUC automatically updates your hostname to the correct IP address.
-
-Choose your Operating System and follow the installation instructions below.
-
-Download the DUC and save the file to: /usr/local/src
-Open terminal and execute the following:
-cd /usr/local/src
-tar xzf noip-duc-linux.tar.gz
-cd no-ip-2.1.9
-make
-make install
-Create the configuration file: /usr/local/bin/noip2 -C
-You will be prompted to enter your username and password for No-IP, and for the hostnames you wish to update.
-Launch the DUC: /usr/local/bin/noip2
+Search for "noip" in Google and click on the link. Hit the Sign Up button, enter a Username and Password, then create a memorable hostname ( write your chosen hostname down as you will need it later), agree the Terms of service and hit the Free Sign Up button to create your account. Your Free Hostname will time expire every 30 days unless you renew it in the email reminder they send you, to avoid this you can sign up for the Enhanced service if you like.
 
 # IFTTT
 
-Text here
+Now you need to create your IFTTT account (if you dont already have one), its all free and easy to setup.  Once your account is created then go to My Applets and click on New Applet, then click on the big blue THIS text to start creating your applet.  In the search box type "Google" and then click on the Google Assistant box, now it will ask to link to your Google account so IFTTT can capture your voice commands automatically.  Once youve done this it will move on to Step 2 and ask you to choose a trigger, we will always use the "Say a phrase with a Text ingredient" selection.  Now lets create several applets to capture our commands as follows:
+
+The first applet will capture your requests to change channel, so where it asks "What do you want to say?" type the following: "switch to $", in the second box: "change to $", in the third box: "tune to $", or use a phrase that better suits you to capture the Change Channel request. Put something suitable in the fourth box like "ok, switching tv to $" so it will repeat back to you the channel name or number you requested. Now hit the Create Trigger button at the bottom of the applet.
+
+Now click on the big blue THAT text to create the action to send to your Raspberry Pi for changing channel on youe Sky box. In the search box type "web", select webhooks, then click on the make a web request option. In the first box (URL) you must type the hostname you created in your no-ip.com account (for example: joebloggs.ddns.net) followed exactly by the text as show here: http://joebloggs.ddns.net:5000/channels then click on the Add Ingredient button and choose Text Field (so that it adds it to the end of your URL).  For the Method box choose "POST". For the content type choose "text/plain", then click on the Save button.
 
 # Raspberry Pi
 
