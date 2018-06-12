@@ -4,7 +4,7 @@ import datetime
 import skybox_ip
 import SkyChannelList
 import requests
-import urllib3
+import urllib3  ## do I need this?
 from flask import Flask, redirect, request, url_for
 
 IP = (str(skybox_ip.ip1) + "." + str(skybox_ip.ip2) + "." + str(skybox_ip.ip3) + "." + str(skybox_ip.ip4))
@@ -16,13 +16,13 @@ except:
     print("Unable to start No-ip DUC service")
 
 now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
-Vol_Range = 1
+# Vol_Range = 1
 delay = 0.5000
-http = urllib3.PoolManager()
+# http = urllib3.PoolManager()
 #lamp_ON = 'http://192.168.1.95/control?cmd=gpio,12,1'
 #lamp_OFF = 'http://192.168.1.95/control?cmd=gpio,12,0'
-lamp_ON = 'http://192.168.1.95/on'
-lamp_OFF = 'http://192.168.1.95/off'
+#lamp_ON = 'http://192.168.1.95/on'
+#lamp_OFF = 'http://192.168.1.95/off'
 
 app = Flask(__name__)
 
@@ -131,12 +131,12 @@ def log_IR(phrase, action):
         f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nAction: " + action)
         f.close()
 
-def log_device(phrase, action, result):
-    now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
-    with open("log.txt", "a") as f:
-        f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nAction: " + action + "\nResult: " + result)
-        f.close()
-
+#def log_device(phrase, action, result):
+#    now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
+#    with open("log.txt", "a") as f:
+#        f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nAction: " + action + "\nResult: " + result)
+#        f.close()
+#
 @app.route("/<phrase>", methods = ['POST', 'GET'])
        
 def data_input(phrase):
@@ -145,63 +145,59 @@ def data_input(phrase):
     print("Revised command is " + phrase)
     
 #Devices Control
-    if "switchdevice" in phrase:
-        if "lamp" in phrase:
-            if "on" in phrase:
-                action = lamp_ON
-                try:
-                    r = http.request('GET', action)
-                    r.status
-                    if r.status == 200:
-                        print(action)
-                        print("Lamp is ON")
-                        log_device(phrase, action, " Successful")
-                except:
-                    print("Failed to establish connection")
-                    log_device(phrase, action, " Fail")
-                    
-            elif "off" in phrase:
-                #command = "Switch the Lamp OFF"
-                action = lamp_OFF
-                try:
-                    r = http.request('GET', action)
-                    r.status
-                    if r.status == 200:
-                        print(action)
-                        print("Lamp is OFF")
-                        log_device(phrase, action, " Successful")
-                except:
-                    print("Failed to establish connection")
-                    log_device(phrase, action, " Fail")
-        
-        if "tv" in phrase or "telly" in phrase:
-            if " on" in phrase or " off" in phrase:
-                os.system ("python BlackBeanControl.py -c power" )
-                log_IR(phrase," TV Power ON/OFF")        
-        phrase = phrase + "channels" #do not delete, needed for "Switch the TV.... commands"   
+#    #if "switchdevice" in phrase:
+#        #if "lamp" in phrase:
+#           # if "on" in phrase:
+#              #  action = lamp_ON
+#              #  try:
+#               #     r = http.request('GET', action)
+#                    r.status
+#                    if r.status == 200:
+#                        print(action)
+#                        print("Lamp is ON")
+#                        log_device(phrase, action, " Successful")
+#                except:
+#                    print("Failed to establish connection")
+#                    log_device(phrase, action, " Fail")
+#                    
+#            elif "off" in phrase:
+#                #command = "Switch the Lamp OFF"
+#                action = lamp_OFF
+#                try:
+#                    r = http.request('GET', action)
+#                    r.status
+#                    if r.status == 200:
+#                        print(action)
+#                        print("Lamp is OFF")
+#                        log_device(phrase, action, " Successful")
+#                except:
+#                    print("Failed to establish connection")
+#                    log_device(phrase, action, " Fail")
+#        
+#        if "tv" in phrase or "telly" in phrase:
+#            if " on" in phrase or " off" in phrase:
+#                os.system ("python BlackBeanControl.py -c power" )
+#                log_IR(phrase," TV Power ON/OFF")        
+#        phrase = phrase + "channels" #do not delete, needed for "Switch the TV.... commands"   
         
 # TV control (IR Functions, if BlackBean RM3 is used)
     if "tvir" in phrase:
         if " mute" in phrase or " unmute" in phrase:
-            #os.system ("python RM3control.py -c mute")
             os.system ("python BlackBeanControl.py -c mute")
             log_IR(phrase," TV Volume Mute/Unmute")
 
         elif " on" in phrase or " off" in phrase:
-           # os.system ("python RM3control.py -c power" )
             os.system ("python BlackBeanControl.py -c power" )
             log_IR(phrase," TV Power ON/OFF")
 
         elif " up" in phrase:
             for i in range (Vol_Range):
-                #os.system ("python RM3control.py -c volup")
                 os.system ("python BlackBeanControl.py -c volup")
                 log_IR(phrase," TV Volume UP")
                 time.sleep(.500)
 
         elif " down" in phrase:
             for i in range (Vol_Range):
-                #os.system ("python RM3control.py -c voldown")
                 os.system ("python BlackBeanControl.py -c voldown")
                 log_IR(phrase," TV Volume DOWN")
                 time.sleep(.500)
@@ -337,7 +333,6 @@ def data_input(phrase):
             else:
                 os.system ("sky-remote-cli " + IP + " " + SkyChannelList.bbc_1)
                 log_channel(phrase,IP,SkyChannelList.bbc_1)
-
 
         if "itv" in phrase: 
             os.system ("sky-remote-cli " + IP + " " + SkyChannelList.itv_1)
