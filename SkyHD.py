@@ -19,24 +19,41 @@ except:
 CarCharger_Start_Time_Hours = 21
 CarCharger_Stop_Time_Hours = 7
 CarChargerStatus = 0
+
 Dishwasher_Start_Time_Hours = 21
 DishwasherStatus = 0
+
 Xmas_Lights_Start_Time_Hours = 16
 Xmas_Lights_Start_Time_Min = 30
 Xmas_Lights_Stop_Time_Hours = 23
-Xmas_Lights_Stop_Time_Min = 30
-Xmas_Lights_Status = 0
+Xmas_Lights_Stop_Time_Min = 00
+Xmas_Lights_Show_Time1_Hours = 17 #first show
+Xmas_Lights_Show_Time1_Min = 00
+Xmas_Lights_Show_Time2_Hours = 19 #second show
+Xmas_Lights_Show_Time2_Min = 00
+Xmas_Lights_Status = 0 
+Porch_Light_Start_Time_Hours = 16
+Porch_Light_Start_Time_Minutes = 45
+Porch_Light_Stop_Time_Hours = 0
+Porch_Light_Stop_Time_Minutes = 0
+Porch_Light_Status = 0
+Show_Status = 0
+Show_Duration = 4
 
 WateringTime = 1 # water the plants for 1 minute
-activate_xmas_lights = 0
+activate_xmas_lights = 1 #Switch this to 1 if you want the Xmas lights to come on
+
 
 now = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
 Hour = datetime.datetime.now().strftime('%H')
 Minute = datetime.datetime.now().strftime('%M')
 Day = datetime.datetime.now().strftime('%d')
+Month = datetime.datetime.now().strftime('%m')
 CurrentHour = int(Hour)
 CurrentMinute = int(Minute)
 CurrentDay = int(Day)
+CurrentMonth = int(Month)
+
 Vol_Range = 1
 delay = 0.5000
 http = urllib3.PoolManager()
@@ -52,8 +69,12 @@ diningroom_lights_ON = 'http://192.168.1.120/on'
 diningroom_lights_OFF = 'http://192.168.1.120/off'
 outside_xmas_lights_ON = 'http://192.168.1.126/on'
 outside_xmas_lights_OFF = 'http://192.168.1.126/off'
-back_xmas_lights_ON = 'http://192.168.1.134/on'
-back_xmas_lights_OFF = 'http://192.168.1.134/off'
+outside_xmas_lights_CYCLE = 'http://192.168.1.126/cycle'
+xmas_lights_controller_ON = 'http://192.168.1.134/on'
+xmas_lights_controller_OFF = 'http://192.168.1.134/off'
+xmas_lights_controller_CYCLE = 'http://192.168.1.134/cycle'
+back_xmas_lights_ON = 'http://192.168.1.180/on'
+back_xmas_lights_OFF = 'http://192.168.1.180/off'
 bed1_xmas_lights_ON = 'http://192.168.1.128/on'
 bed1_xmas_lights_OFF = 'http://192.168.1.128/off'
 bed2_xmas_lights_ON = 'http://192.168.1.133/on' 
@@ -71,8 +92,8 @@ conservatory_xmas_lights_OFF = 'http://192.168.1.114/off'
 conservatory_lights_ON = 'http://192.168.1.137/on'
 conservatory_lights_OFF = 'http://192.168.1.137/off'
 conservatory_lights_TOGGLE = 'http://192.168.1.137/toggle'
-floodlight_ON = 'http://192.168.1.134/on'
-floodlight_OFF = 'http://192.168.1.134/off'
+floodlight_ON = 'http://192.168.1.180/on'
+floodlight_OFF = 'http://192.168.1.180/off'
 outside_lights_ON = 'http://192.168.1.101/on'
 outside_lights_OFF = 'http://192.168.1.101/off'
 outside_lights_TOGGLE = 'http://192.168.1.101/toggle'
@@ -84,6 +105,8 @@ Dishwasher_ON = 'http://192.168.1.122/on'
 Dishwasher_OFF = 'http://192.168.1.122/off'
 Printer_ON = 'http://192.168.1.64/on'
 Printer_OFF = 'http://192.168.1.64/off'
+Porch_Light_ON = 'http://192.168.1.155/on'
+Porch_Light_OFF = 'http://192.168.1.155/off'
 
 app = Flask(__name__)
 
@@ -176,24 +199,28 @@ def find_character_code_sequence(char): #this is for the Search function
 
 def log_channel(phrase, IP, channel):
     now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
+    #with open("/home/pi/SkyHD/log.txt", "a") as f:
     with open("log.txt", "a") as f:
         f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nSkyHD box IP: " + IP + "\nChannel: " + channel)
         f.close()
 
 def log_action(phrase, IP, action):
     now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
+    #with open("/home/pi/SkyHD/log.txt", "a") as f:
     with open("log.txt", "a") as f:
         f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nSkyHD box IP: " + IP + "\nAction: " + action)
         f.close()
 
 def log_IR(phrase, action):
     now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
+    #with open("/home/pi/SkyHD/log.txt", "a") as f:
     with open("log.txt", "a") as f:
         f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nAction: " + action)
         f.close()
 
 def log_device(phrase, action, result):
     now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
+    #with open("/home/pi/SkyHD/log.txt", "a") as f:
     with open("log.txt", "a") as f:
         f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nAction: " + action + "\nResult: " + result)
         f.close()
@@ -244,10 +271,6 @@ def Xmas_Lights_ON():
     global Xmas_Lights_Status
     print("Switching the Xmas Lights ON (timer function)")
     phrase = "Xmas Lights ON (timer function)"
-    switch_device(phrase, outside_xmas_lights_ON)
-    time.sleep(0.5)
-    switch_device(phrase, back_xmas_lights_ON)
-    time.sleep(0.5)
     switch_device(phrase, bed1_xmas_lights_ON)
     time.sleep(0.5)
     switch_device(phrase, bed2_xmas_lights_ON)
@@ -261,15 +284,21 @@ def Xmas_Lights_ON():
     switch_device(phrase, conservatory_xmas_lights_ON)
     time.sleep(0.5)
     switch_device(phrase, hall_xmas_lights_ON)
+    time.sleep(0.5)
+    switch_device(phrase, back_xmas_lights_ON)
+    time.sleep(1.5)
+    switch_device(phrase, outside_xmas_lights_CYCLE)
+    time.sleep(2)
+    switch_device(phrase, xmas_lights_controller_CYCLE)
     Xmas_Lights_Status = 1
     
 def Xmas_Lights_OFF():
     global Xmas_Lights_Status
     print("Switching the Xmas Lights OFF (timer function)")
     phrase = "Xmas Lights OFF (timer function)"
-    switch_device(phrase, outside_xmas_lights_OFF)
+    switch_device(phrase, xmas_lights_controller_OFF)
     time.sleep(0.5)
-    switch_device(phrase, back_xmas_lights_OFF)
+    switch_device(phrase, outside_xmas_lights_OFF)
     time.sleep(0.5)
     switch_device(phrase, bed1_xmas_lights_OFF)
     time.sleep(0.5)
@@ -284,24 +313,88 @@ def Xmas_Lights_OFF():
     switch_device(phrase, conservatory_xmas_lights_OFF)
     time.sleep(0.5)
     switch_device(phrase, hall_xmas_lights_OFF)
+    time.sleep(0.5)
+    switch_device(phrase, back_xmas_lights_OFF)
     Xmas_Lights_Status = 0
+
+def Xmas_Lights_Music_Show():
+    global Xmas_Lights_Status
+    print("Switching on the Xmas Lights Music Show (timer function)")
+    phrase = "Xmas Lights Music Show (timer function)"
+    switch_device(phrase, xmas_lights_controller_OFF)
+    time.sleep(1)
+    switch_device(phrase, outside_xmas_lights_OFF)
+    time.sleep(5)
+    switch_device(phrase, outside_xmas_lights_ON)
+    time.sleep(2)
+    switch_device(phrase, xmas_lights_controller_ON)
+    Xmas_Lights_Status = 1
 
 def gettime():
     global CurrentMinute
     global CurrentHour
+    global CurrentMonth
     global CurrentDayofWeek
     now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     Hour = datetime.datetime.now().strftime('%H')
     Minute = datetime.datetime.now().strftime('%M')
     Day = datetime.datetime.now().strftime('%d')
     DayofWeek = datetime.datetime.now().strftime('%u')
+    Month = datetime.datetime.now().strftime('%m')    
     CurrentHour = int(Hour)
     CurrentMinute = int(Minute)
     CurrentDay = int(Day)
+    CurrentMonth = int(Month)
     CurrentDayofWeek = int(DayofWeek)
+    get_Porch_Light_Start_Time()
     print(now)
     print " "
 
+def get_Porch_Light_Start_Time():
+    global CurrentMonth
+    global Porch_Light_Start_Time_Hours
+    global Porch_Light_Start_Time_Minutes
+    if CurrentMonth == 1:
+        Porch_Light_Start_Time_Hours = 16
+        Porch_Light_Start_Time_Minutes = 0
+    elif CurrentMonth == 2:
+        Porch_Light_Start_Time_Hours = 16
+        Porch_Light_Start_Time_Minutes = 0
+    elif CurrentMonth == 3:
+        Porch_Light_Start_Time_Hours = 18
+        Porch_Light_Start_Time_Minutes = 0
+    elif CurrentMonth == 4:
+        Porch_Light_Start_Time_Hours = 18
+        Porch_Light_Start_Time_Minutes = 30
+    elif CurrentMonth == 5:
+        Porch_Light_Start_Time_Hours = 19
+        Porch_Light_Start_Time_Minutes = 20
+    elif CurrentMonth == 6:
+        Porch_Light_Start_Time_Hours = 20
+        Porch_Light_Start_Time_Minutes = 0
+    elif CurrentMonth == 7:
+        Porch_Light_Start_Time_Hours = 20
+        Porch_Light_Start_Time_Minutes = 0
+    elif CurrentMonth == 8:
+        Porch_Light_Start_Time_Hours = 19
+        Porch_Light_Start_Time_Minutes = 15
+    elif CurrentMonth == 9:
+        Porch_Light_Start_Time_Hours = 18
+        Porch_Light_Start_Time_Minutes = 40
+    elif CurrentMonth == 10:
+        Porch_Light_Start_Time_Hours = 16
+        Porch_Light_Start_Time_Minutes = 40
+    elif CurrentMonth == 11:
+        Porch_Light_Start_Time_Hours = 16
+        Porch_Light_Start_Time_Minutes = 0
+    elif CurrentMonth == 12:
+        Porch_Light_Start_Time_Hours = 16
+        Porch_Light_Start_Time_Minutes = 0
+    else:
+        Porch_Light_Start_Time_Hours = 23
+        Porch_Light_Start_Time_Minutes = 0
+        print "Month not recognised"
+    
 class DailyTasksProg:
     def __init__(self):
         self._running = True
@@ -320,11 +413,18 @@ class DailyTasksProg:
         global CarChargerStatus
         global DishwasherStatus
         global Xmas_Lights_Status
+        global Porch_Light_Status
+        global Porch_Light_Start_Time_Hours
+        global Porch_Light_Start_Time_Minutes
+        global activate_xmas_lights
+        global Show_Status
+        
         while self._running:
             gettime()
             print "Time Now is", datetime.datetime.now().strftime('%H:%M')
             print "Day of Week = ", CurrentDayofWeek
-
+            print "Month = ", CurrentMonth
+ 
             #CarCharger*********************************
             if CurrentDayofWeek <=5: # if its Mon to Fri
                 if CurrentHour >= CarCharger_Stop_Time_Hours: # if its past the OFF time
@@ -353,6 +453,29 @@ class DailyTasksProg:
                             Xmas_Lights_OFF()
                             Xmas_Lights_Status = 0
                 print "Xmas Lights Status = ", Xmas_Lights_Status
+
+            #Xmas Lights Music Show *****
+            if activate_xmas_lights == 1:
+                if Show_Status == 0:
+                    if CurrentHour == Xmas_Lights_Show_Time2_Hours: #Second Show
+                        if CurrentMinute == Xmas_Lights_Show_Time2_Min:
+                            Xmas_Lights_Music_Show()
+                            Show_Status = 1
+                            Xmas_Lights_Status = 1
+                    if CurrentHour == Xmas_Lights_Show_Time1_Hours: #First Show
+                        if CurrentMinute == Xmas_Lights_Show_Time1_Min:
+                            Xmas_Lights_Music_Show()
+                            Show_Status = 1
+                            Xmas_Lights_Status = 1
+
+            if Show_Status == 1:
+                if currentHour == Xmas_Lights_Show_Time1_Hours:
+                    if CurrentMinute == Xmas_Lights_Show_Time1_Min + Show_Duration:
+                        Show_Status = 0 #reset at the end of show 1
+                if currentHour == Xmas_Lights_Show_Time2_Hours:
+                    if CurrentMinute == Xmas_Lights_Show_Time2_Min + Show_Duration:
+                        Show_Status = 0 #reset at the end of show 2
+                        
             
             #Dishwasher******************
             if CurrentHour == Dishwasher_Start_Time_Hours:
@@ -377,6 +500,52 @@ class DailyTasksProg:
             else:
                 DishwasherStatus = 0
             print "Dishwasher Status = ", DishwasherStatus
+
+            #Porch Light*****************************
+            if Porch_Light_Status == 0:
+                if CurrentHour == Porch_Light_Start_Time_Hours:
+                    if CurrentMinute >= Porch_Light_Start_Time_Minutes:
+                        if activate_xmas_lights == 0:
+                            print("Switching the Porch Light ON (timer function)")
+                            action = Porch_Light_ON
+                            phrase = "Porch Light ON (timer function)"
+                            try:
+                                r = http.request('GET', action)
+                                r.status
+                                if r.status == 200:
+                                    print(Porch_Light_ON)
+                                    log_device(phrase, action, " Successful")
+                                    Porch_Light_Status = 1
+                                else:
+                                    log_device(phrase, action, " Invalid Status reply from device")
+                                    Porch_Light_Status = 0
+                            except:
+                                print("Failed to establish connection")
+                                Porch_Light_Status = 0
+                        
+
+            if Porch_Light_Status == 1:
+                if CurrentHour == Porch_Light_Stop_Time_Hours:
+                    if CurrentMinute >= Porch_Light_Stop_Time_Minutes:
+                        print("Switching the Porch Light OFF (timer function)")
+                        action = Porch_Light_OFF
+                        phrase = "Porch Light OFF (timer function)"
+                        try:
+                            r = http.request('GET', action)
+                            r.status
+                            if r.status == 200:
+                                print(Porch_Light_OFF)
+                                log_device(phrase, action, " Successful")
+                                Porch_Light_Status = 0
+                            else:
+                                log_device(phrase, action, " Invalid Status reply from device")
+                                Porch_Light_Status = 1
+                        except:
+                            print("Failed to establish connection")
+                            Porch_Light_Status = 1
+
+                        
+            print "Porch Light Status = ", Porch_Light_Status
             
             #End of timer section********************
             time.sleep(60) # run timer loop every 60 sec
@@ -489,47 +658,6 @@ def data_input(phrase):
                     switch_device(phrase, outside_xmas_lights_ON)
                 elif "off" in phrase:
                     switch_device(phrase, outside_xmas_lights_OFF)
-##            else:
-##                if "on" in phrase:
-##                    switch_device(phrase, outside_xmas_lights_ON)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, back_xmas_lights_ON)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, bed1_xmas_lights_ON)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, bed2_xmas_lights_ON)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, lounge1_xmas_lights_ON)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, lounge2_xmas_lights_ON)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, diningroom_xmas_lights_ON)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, conservatory_xmas_lights_ON)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, hall_xmas_lights_ON)
-##                    time.sleep(0.5)
-##                if "off" in phrase:
-##                    switch_device(phrase, outside_xmas_lights_OFF)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, back_xmas_lights_OFF)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, bed1_xmas_lights_OFF)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, bed2_xmas_lights_OFF)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, hall_xmas_lights_OFF)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, lounge1_xmas_lights_OFF)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, lounge2_xmas_lights_OFF)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, diningroom_xmas_lights_OFF)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, conservatory_xmas_lights_OFF)
-##                    time.sleep(0.5)
-##                    switch_device(phrase, hall_xmas_lights_OFF)
-##                    time.sleep(0.5)
             else:
                 if "on" in phrase:
                     Xmas_Lights_ON()
@@ -550,7 +678,7 @@ def data_input(phrase):
                   
         if "tv" in phrase or "telly" in phrase:
             if " on" in phrase or " off" in phrase:
-                os.system ("python BlackBeanControl.py -c power" )
+                os.system ("python /home/pi/SkyHD/BlackBeanControl.py -c power" )
                 log_IR(phrase," TV Power ON/OFF")
 
         phrase = phrase + "channels" #do not delete, needed for "Switch the TV.... commands"
@@ -566,22 +694,22 @@ def data_input(phrase):
 # TV control (IR Functions)
     if "tvir" in phrase:
         if " mute" in phrase or " unmute" in phrase:
-            os.system ("python BlackBeanControl.py -c mute")
+            os.system ("python /home/pi/SkyHD/BlackBeanControl.py -c mute")
             log_IR(phrase," TV Volume Mute/Unmute")
 
         elif " on" in phrase or " off" in phrase:
-            os.system ("python BlackBeanControl.py -c power" )
+            os.system ("python /home/pi/SkyHD/BlackBeanControl.p -c power" )
             log_IR(phrase," TV Power ON/OFF")
 
         elif " up" in phrase:
             for i in range (Vol_Range):
-                os.system ("python BlackBeanControl.py -c volup")
+                os.system ("python /home/pi/SkyHD/BlackBeanControl.py -c volup")
                 log_IR(phrase," TV Volume UP")
                 time.sleep(.500)
 
         elif " down" in phrase:
             for i in range (Vol_Range):
-                os.system ("python BlackBeanControl.py -c voldown")
+                os.system ("python /home/pi/SkyHD/BlackBeanControl.py -c voldown")
                 log_IR(phrase," TV Volume DOWN")
                 time.sleep(.500)
                 
@@ -792,5 +920,7 @@ def data_input(phrase):
 
 if __name__== "__main__":
     app.run(host='0.0.0.0' , debug=False, use_reloader=False)
+
+
 
 
