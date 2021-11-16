@@ -37,11 +37,15 @@ Porch_Light_Start_Time_Minutes = 45
 Porch_Light_Stop_Time_Hours = 0
 Porch_Light_Stop_Time_Minutes = 0
 Porch_Light_Status = 0
+Watering_Plants_Status = 0
+Watering_Start_Time_Hours = 13
+Watering_Start_Time_Minutes = 1
 Show_Status = 0
 Show_Duration = 4
 
-WateringTime = 1 # water the plants for 1 minute
-activate_xmas_lights = 1 #Switch this to 1 if you want the Xmas lights to come on
+Watering_Calendar = 0 # 1 for ON, 0 for OFF
+WateringTime = 1 # Number of minutes to water the flowers 
+activate_xmas_lights = 0 #Switch this to 1 if you want the Xmas lights to come on
 
 
 now = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
@@ -199,31 +203,27 @@ def find_character_code_sequence(char): #this is for the Search function
 
 def log_channel(phrase, IP, channel):
     now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
-    #with open("/home/pi/SkyHD/log.txt", "a") as f:
-    with open("log.txt", "a") as f:
-        f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nSkyHD box IP: " + IP + "\nChannel: " + channel)
-        f.close()
+    #with open("log.txt", "a") as f:
+        #f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nSkyHD box IP: " + IP + "\nChannel: " + channel)
+        #f.close()
 
 def log_action(phrase, IP, action):
     now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
-    #with open("/home/pi/SkyHD/log.txt", "a") as f:
-    with open("log.txt", "a") as f:
-        f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nSkyHD box IP: " + IP + "\nAction: " + action)
-        f.close()
+    #with open("log.txt", "a") as f:
+        #f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nSkyHD box IP: " + IP + "\nAction: " + action)
+        #f.close()
 
 def log_IR(phrase, action):
     now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
-    #with open("/home/pi/SkyHD/log.txt", "a") as f:
-    with open("log.txt", "a") as f:
-        f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nAction: " + action)
-        f.close()
+    #with open("log.txt", "a") as f:
+        #f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nAction: " + action)
+        #f.close()
 
 def log_device(phrase, action, result):
     now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
-    #with open("/home/pi/SkyHD/log.txt", "a") as f:
-    with open("log.txt", "a") as f:
-        f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nAction: " + action + "\nResult: " + result)
-        f.close()
+    #with open("log.txt", "a") as f:
+        #f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nAction: " + action + "\nResult: " + result)
+        #f.close()
 
 def switch_device(phrase, device_action):    
     try:
@@ -418,6 +418,7 @@ class DailyTasksProg:
         global Porch_Light_Start_Time_Minutes
         global activate_xmas_lights
         global Show_Status
+        global Watering_Plants_Status
         
         while self._running:
             gettime()
@@ -469,10 +470,10 @@ class DailyTasksProg:
                             Xmas_Lights_Status = 1
 
             if Show_Status == 1:
-                if currentHour == Xmas_Lights_Show_Time1_Hours:
+                if CurrentHour == Xmas_Lights_Show_Time1_Hours:
                     if CurrentMinute == Xmas_Lights_Show_Time1_Min + Show_Duration:
                         Show_Status = 0 #reset at the end of show 1
-                if currentHour == Xmas_Lights_Show_Time2_Hours:
+                if CurrentHour == Xmas_Lights_Show_Time2_Hours:
                     if CurrentMinute == Xmas_Lights_Show_Time2_Min + Show_Duration:
                         Show_Status = 0 #reset at the end of show 2
                         
@@ -546,6 +547,53 @@ class DailyTasksProg:
 
                         
             print "Porch Light Status = ", Porch_Light_Status
+
+            #Water the plants calendar basis*****************************
+            if Watering_Plants_Status == 0:
+                if CurrentHour == Watering_Start_Time_Hours:
+                    if CurrentMinute == Watering_Start_Time_Minutes:
+                        if Watering_Calendar == 1:
+                            print("Watering the Flowers (timer function)")
+                            watering_delay = 60*WateringTime 
+                            action = outside_tap_ON
+                            phrase = "Watering the Flowers (timer function)"
+                            try:
+                                r = http.request('GET', action)
+                                r.status
+                                if r.status == 200:
+                                    print(outside_tap_ON)
+                                    log_device(phrase, action, " Successful")
+                                    Watering_Plants_Status = 1
+                                else:
+                                    log_device(phrase, action, " Invalid Status reply from device")
+                                    Watering_Plants_Status = 0
+                            except:
+                                print("Failed to establish connection")
+                                Watering_Plants_Status = 0
+                        
+
+            if Watering_Plants_Status == 1:
+                #if CurrentHour >= Watering_Start_Time_Hours:
+                if CurrentMinute >= Watering_Start_Time_Minutes + WateringTime:
+                    print("Stop watering the flowers (timer function)")
+                    action = outside_tap_OFF
+                    phrase = "Stop watering the flowers (timer function)"
+                    try:
+                        r = http.request('GET', action)
+                        r.status
+                        if r.status == 200:
+                            print(outside_tap_OFF)
+                            log_device(phrase, action, " Successful")
+                            Watering_Plants_Status = 0
+                        else:
+                            log_device(phrase, action, " Invalid Status reply from device")
+                            Watering_Plants_Status = 1
+                    except:
+                        print("Failed to establish connection")
+                        Watering_Plants_Status = 1
+
+                        
+            print "Watering Status = ", Watering_Plants_Status
             
             #End of timer section********************
             time.sleep(60) # run timer loop every 60 sec
@@ -920,6 +968,7 @@ def data_input(phrase):
 
 if __name__== "__main__":
     app.run(host='0.0.0.0' , debug=False, use_reloader=False)
+
 
 
 
