@@ -206,6 +206,7 @@ def log_channel(phrase, IP, channel):
     #with open("log.txt", "a") as f:
         #f.write("\n\n" + now + "\nPhrase recieved = " + phrase + "\nSkyHD box IP: " + IP + "\nChannel: " + channel)
         #f.close()
+        #delete this line
 
 def log_action(phrase, IP, action):
     now = datetime.datetime.now().strftime("%d-%b-%Y, %H:%M:%S")
